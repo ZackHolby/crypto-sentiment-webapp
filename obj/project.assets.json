@@ -54,11 +54,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Zack\\Coding\\crypto-reset\\crypto-sentiment.csproj",
+      "projectUniqueName": "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
       "projectName": "crypto-sentiment",
-      "projectPath": "C:\\Users\\Zack\\Coding\\crypto-reset\\crypto-sentiment.csproj",
+      "projectPath": "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
       "packagesPath": "C:\\Users\\Zack\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Zack\\Coding\\crypto-reset\\obj\\",
+      "outputPath": "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
