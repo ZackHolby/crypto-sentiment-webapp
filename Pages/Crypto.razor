@@ -1,0 +1,59 @@
+@page "/crypto"
+
+@using crypto_sentiment.Data
+@inject CryptoService cryptoservice
+
+<h1>Crypto</h1>
+
+<p> Bitcoin price: @currentPrice</p>
+
+
+@if (cryptoData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Symbol</th>
+                <th>Current Price</th>
+                <th>Market Cap</th>
+                <th>Slug</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <td>@cryptoData.Date.ToShortDateString()</td>
+                    <td>@cryptoData.symbol</td>
+                    <td>@cryptoData.currPrice</td>
+                    <td>@cryptoData.market_cap</td>
+                    <td>@cryptoData.slug</td>
+                </tr>
+            
+        </tbody>
+    </table>
+}
+
+
+
+@code {
+    private int currentPrice = 0;
+
+    private void getPrice()
+    {
+        var rand = new Random();
+        currentPrice = rand.Next(20000, 50000);
+    }
+
+
+    private CryptoData cryptoData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        cryptoData = await CryptoService.getCryptoData(DateTime.Now);
+    }
+}
