@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZaHWr834Pe8lFtBx9hQjKT+7maMt0M0Hhf2ugZPppadETqZ1BUDzQPsrewCcET0OC7I3+H7/IvwjGCrpFzBT/w==",
+  "dgSpecHash": "IjXWxQPQpIPXc83D4ZQVr65WevkQEm4HQ4A/ebtTAdkVoq+2YLNWrTVBRVopHp5ircQNm5c1+MMy5hp89xyKrg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Zack\\Coding\\crypto-reset\\crypto-sentiment.csproj",
+  "projectFilePath": "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Zack\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],

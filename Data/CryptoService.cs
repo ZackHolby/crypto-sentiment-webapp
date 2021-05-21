@@ -5,13 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
+using crypto_sentiment.Data;
+
 
 
 namespace crypto_sentiment.Data
 {
     public class CryptoService
     {
-        private static string API_KEY = "";
+        private static string COIN_MARKET_API_KEY = Secrets.getCoinMarketKey();
 
         // public static void Main(string[] args)
         // {
@@ -34,7 +36,7 @@ namespace crypto_sentiment.Data
             URL.Query = queryString.ToString();
 
             var client = new WebClient();
-            client.Headers.Add("X-CMC_PRO_API_KEY", API_KEY);
+            client.Headers.Add("X-CMC_PRO_API_KEY", COIN_MARKET_API_KEY);
             client.Headers.Add("Accepts", "application/json");
             string resp = client.DownloadString(URL.ToString());
             var cryptoObject = JObject.Parse(resp);
