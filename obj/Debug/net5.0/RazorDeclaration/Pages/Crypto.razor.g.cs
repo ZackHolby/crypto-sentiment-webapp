@@ -98,7 +98,7 @@ using crypto_sentiment.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
+#line 45 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
        
     private int currentPrice = 0;
 

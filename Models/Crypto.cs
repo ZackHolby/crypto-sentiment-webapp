@@ -7,6 +7,9 @@ namespace crypto_sentiment.Models {
     {
         public DateTime Date { get; set; }
 
+        [Key]
+        public string cryptoID  { get; set; }
+
         [Required]
         public int currencyID {get;set;}
 

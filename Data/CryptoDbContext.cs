@@ -13,28 +13,32 @@ namespace crypto_sentiment.Models {
       builder.Entity<CryptoData>().HasData(
         new {
           date = DateTime.Now,
-          CurrencyID = 1,
+          cryptoID = Guid.NewGuid().ToString(),
+          currencyID = 1,
           currPrice = 1000,
           symbol = "BTC",
           slug = "Bitcoin",
           market_cap = 10
         }, new {
           date =  DateTime.Now,
-          CurrencyID = 2,
+          cryptoID = Guid.NewGuid().ToString(),
+          currencyID = 2,
           currPrice = 2000,
           symbol = "ETH",
           slug = "Ethereum",
           market_cap = 20
         }, new {
           date = DateTime.Now,
-          CurrencyID = 3,
+          cryptoID = Guid.NewGuid().ToString(),
+          currencyID = 3,
           currPrice = 3000,
           symbol = "ADA",
           slug = "Cardano",
           market_cap = 30
         }, new {
           date = DateTime.Now,
-          CurrencyID = 4,
+          cryptoID = Guid.NewGuid().ToString(),
+          currencyID = 4,
           currPrice = 4000,
           symbol = "LINK",
           slug = "Chainlink",

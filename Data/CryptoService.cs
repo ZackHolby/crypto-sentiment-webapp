@@ -47,6 +47,7 @@ namespace crypto_sentiment.Data
             {
                 Date = startDate,
                 currPrice = (int)cryptoObject["data"][0]["quote"]["USD"]["price"],
+                cryptoID = "1",
                 symbol = (string)cryptoObject["data"][0]["symbol"],
                 slug = (string)cryptoObject["data"][0]["slug"],
                 market_cap = (double)cryptoObject["data"][0]["quote"]["USD"]["market_cap"]
