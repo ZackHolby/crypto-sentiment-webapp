@@ -4,7 +4,11 @@ namespace crypto_sentiment.Data
 {
     public class CryptoData
     {
+        public string cryptoID  { get; set; }
         public DateTime Date { get; set; }
+
+        
+        public int currencyID {get;set;}
 
         public int currPrice { get; set; }
 
