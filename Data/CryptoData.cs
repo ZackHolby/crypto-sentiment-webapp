@@ -5,7 +5,7 @@ namespace crypto_sentiment.Data
     public class CryptoData
     {
         public string cryptoID  { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime date { get; set; }
 
         
         public int currencyID {get;set;}
@@ -16,6 +16,6 @@ namespace crypto_sentiment.Data
 
         public string slug {get;set;}
 
-        public double market_cap {get;set;}
+        public long market_cap {get;set;}
     }
 }
