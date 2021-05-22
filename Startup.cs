@@ -29,6 +29,7 @@ namespace crypto_sentiment
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<CryptoService>();
+            services.AddDbContext<CryptoDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
