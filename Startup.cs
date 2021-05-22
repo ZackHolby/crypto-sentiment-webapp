@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using crypto_sentiment.Data;
+using crypto_sentiment.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace crypto_sentiment
 {

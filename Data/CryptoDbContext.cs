@@ -2,8 +2,8 @@ using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace crypto_sentiment.Models {
-  public class CryptDbContext : DbContext {
-    public DbSet<Crypto> Currencies { get; set; }
+  public class CryptoDbContext : DbContext {
+    public DbSet<CryptoData> Currencies { get; set; }
 
     public CryptoDbContext(DbContextOptions<CryptoDbContext> options) : base(options) { }
 
