@@ -31,14 +31,14 @@ namespace crypto_sentiment.Models {
           currPrice = 3000,
           symbol = "ADA",
           slug = "Cardano",
-          market_cap = 10
+          market_cap = 30
         }, new {
           date = DateTime.Now,
           CurrencyID = 4,
           currPrice = 4000,
           symbol = "LINK",
           slug = "Chainlink",
-          market_cap = 10
+          market_cap = 40
         }
       );
     }
