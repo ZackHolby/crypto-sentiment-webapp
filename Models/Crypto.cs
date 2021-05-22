@@ -5,7 +5,7 @@ using System;
 namespace crypto_sentiment.Models {
     public class CryptoData
     {
-        public DateTime Date { get; set; }
+        public DateTime date { get; set; }
 
         [Key]
         public string cryptoID  { get; set; }
@@ -21,6 +21,6 @@ namespace crypto_sentiment.Models {
 
         public string slug {get;set;}
 
-        public double market_cap {get;set;}
+        public long market_cap {get;set;}
     }
 }
