@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace crypto_sentiment.Shared
+namespace crypto_sentiment.Pages
 {
     #line hidden
     using System;
@@ -82,7 +82,15 @@ using crypto_sentiment.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Twitter.razor"
+using crypto_sentiment.Data;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/twitter")]
+    public partial class Twitter : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,20 +98,21 @@ using crypto_sentiment.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Shared\NavMenu.razor"
+#line 39 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Twitter.razor"
        
-    private bool collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    private void ToggleNavMenu()
+    private TweetData tweetData;
+
+    protected override async Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+        tweetData = await TwitterService.getTweetData(DateTime.Now);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TwitterService twitterservice { get; set; }
     }
 }
 #pragma warning restore 1591
