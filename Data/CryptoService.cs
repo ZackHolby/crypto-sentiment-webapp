@@ -15,17 +15,6 @@ namespace crypto_sentiment.Data
     {
         private static string COIN_MARKET_API_KEY = Secrets.getCoinMarketKey();
 
-        // public static void Main(string[] args)
-        // {
-        //     try
-        //     {
-        //     Console.WriteLine(getLatestCryptoData());
-        //     }
-        //     catch (WebException e)
-        //     {
-        //     Console.WriteLine(e.Message);
-        //     }
-        // }
 
         public static Task<CryptoData> getCryptoData(DateTime startDate)
         {
