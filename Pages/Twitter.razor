@@ -1,0 +1,48 @@
+@page "/twitter"
+
+@using crypto_sentiment.Data
+@inject TwitterService twitterservice
+
+<h1>twitter</h1>
+
+
+@if (tweetData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>tweetID</th>
+                <th>Symbol</th>
+                <th>Sentiment</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <td>@tweetData.date.ToShortDateString()</td>
+                    <td>@tweetData.tweetID</td>
+                    <td>@tweetData.symbol</td>
+                    <td>@tweetData.sentiment</td>
+                </tr>
+            
+        </tbody>
+    </table>
+}
+
+
+
+@code {
+
+
+    private TweetData tweetData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        tweetData = await TwitterService.getTweetData(DateTime.Now);
+    }
+}
