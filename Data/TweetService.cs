@@ -41,7 +41,7 @@ namespace crypto_sentiment.Data
             // };
             // await stream.StartMatchingAllConditionsAsync("https://stream.twitter.com/1.1/statuses/sample.json");
 
-            // var symb = "No tweets found for symbol "+cryptoSymbol;
+            var symb = "No tweets found for symbol "+cryptoSymbol;
 
             
 

@@ -1,14 +1,18 @@
 @page "/crypto"
 
 @using crypto_sentiment.Data
+@using System.Linq;
+@using Microsoft.EntityFrameworkCore;
+@using crypto_sentiment.Models
 @inject CryptoService cryptoservice
+@inject CryptoDbService cryptoDbService
 
 <h1>Crypto</h1>
 
 <p> Bitcoin price: @currentPrice</p>
 
 
-@if (cryptoData == null)
+@if (cryptoDatas == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -26,7 +30,8 @@ else
             </tr>
         </thead>
         <tbody>
-            
+            @foreach (var cryptoData in cryptoDatas)
+            {
                 <tr>
                     <td>@cryptoData.date.ToShortDateString()</td>
                     <td>@cryptoData.cryptoID</td>
@@ -35,7 +40,7 @@ else
                     <td>@cryptoData.market_cap</td>
                     <td>@cryptoData.slug</td>
                 </tr>
-            
+            }
         </tbody>
     </table>
 }
@@ -52,10 +57,10 @@ else
     }
 
 
-    private CryptoData cryptoData;
-
+    private List<CryptoData> cryptoDatas;
     protected override async Task OnInitializedAsync()
     {
-        cryptoData = await CryptoService.getCryptoData(DateTime.Now);
-    }
+        cryptoDatas = await cryptoDbService.GetCryptosAsync();
+    } 
+
 }

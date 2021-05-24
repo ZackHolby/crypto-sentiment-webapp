@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
 using crypto_sentiment.Data;
+using crypto_sentiment.Models;
 
 
 
