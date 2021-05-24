@@ -44,7 +44,7 @@ namespace crypto_sentiment.Models {
       {
         var data = await _context.Currencies.FindAsync(id);
         
-        if (dada == null)
+        if (data == null)
           return null;
 
         _context.Currencies.Remove(data);

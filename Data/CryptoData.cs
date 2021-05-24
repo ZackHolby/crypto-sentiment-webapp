@@ -2,7 +2,7 @@ using System;
 
 namespace crypto_sentiment.Data
 {
-    public class CryptoData
+    public class CryptoFormat
     {
         public string cryptoID  { get; set; }
         public DateTime date { get; set; }
