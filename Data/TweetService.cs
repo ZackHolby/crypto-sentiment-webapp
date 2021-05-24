@@ -28,29 +28,30 @@ namespace crypto_sentiment.Data
             var client = new TwitterClient(TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SEC,TWITTER_ACCESS_TOK,TWITTER_ACCESS_TOK_SEC);
             
   
-            var resp = await client.SearchV2.SearchTweetsAsync("BTC");
+            //var resp = await client.SearchV2.SearchTweetsAsync("BTC");
 
-            var symb = "No tweets found for symbol "+cryptoSymbol;
+            // var stream = client.Streams.CreateTweetStream();
+            // stream.AddLanguageFilter("en");
+            // stream.AddTrack("hello world");
+
+
+            // stream.EventReceived += (sender, eventReceived) =>
+            // {
+            //     Console.WriteLine(eventReceived.Json);
+            // };
+            // await stream.StartMatchingAllConditionsAsync("https://stream.twitter.com/1.1/statuses/sample.json");
+
+            // var symb = "No tweets found for symbol "+cryptoSymbol;
 
             
-            var classifier = new GroupDocs.Classification.SentimentClassifier();
 
 
-            foreach(var tweet in resp.Tweets){
+            // foreach(var tweet in resp.Tweets){
             
-                symb = cryptoSymbol;
-                Console.WriteLine(tweet.Text);
-                string tweetText = tweet.Text;
-                int totalLen = 0;
-                if(tweetText.Length < 100){
-                    totalLen = tweetText.Length;
-                }else{
-                    totalLen = 100;
-                }
-                var response = classifier.Classify(tweetText.Substring(0,totalLen));
-                Console.WriteLine($"{response.BestClassName}: {response.BestClassProbability}");
+            //     symb = cryptoSymbol;
+            //     Console.WriteLine(tweet.Text);
 
-            }
+            // }
 
             return new TweetData
             {
