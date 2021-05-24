@@ -9,8 +9,6 @@
 
 <h1>Crypto</h1>
 
-<p> Bitcoin price: @currentPrice</p>
-
 
 @if (cryptoDatas == null)
 {
@@ -48,19 +46,17 @@ else
 
 
 @code {
-    private int currentPrice = 0;
-
-    private void getPrice()
-    {
-        var rand = new Random();
-        currentPrice = rand.Next(20000, 50000);
-    }
-
 
     private List<CryptoData> cryptoDatas;
+    private List<CryptoData> newList;
+    private CryptoData addedData;
     protected override async Task OnInitializedAsync()
     {
         cryptoDatas = await cryptoDbService.GetCryptosAsync();
+        newList = cryptoservice.refreshCryptoData(DateTime.Now);
+        foreach(var datapoint in newList){
+            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
+        }
     } 
 
 }
