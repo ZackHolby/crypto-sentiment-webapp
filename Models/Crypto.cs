@@ -11,7 +11,7 @@ namespace crypto_sentiment.Models {
         public string cryptoID  { get; set; }
 
         [Required]
-        public int currPrice { get; set; }
+        public double currPrice { get; set; }
 
         [Required]
         public int currencyID {get;set;}

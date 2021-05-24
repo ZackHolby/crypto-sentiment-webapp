@@ -118,21 +118,19 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
+#line 48 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
        
-    private int currentPrice = 0;
-
-    private void getPrice()
-    {
-        var rand = new Random();
-        currentPrice = rand.Next(20000, 50000);
-    }
-
 
     private List<CryptoData> cryptoDatas;
+    private List<CryptoData> newList;
+    private CryptoData addedData;
     protected override async Task OnInitializedAsync()
     {
         cryptoDatas = await cryptoDbService.GetCryptosAsync();
+        newList = cryptoservice.refreshCryptoData(DateTime.Now);
+        foreach(var datapoint in newList){
+            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
+        }
     } 
 
 
