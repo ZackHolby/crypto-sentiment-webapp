@@ -43,6 +43,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        tweetData = await TwitterService.getTweetData(DateTime.Now);
+        tweetData = await TwitterService.getTweetData(DateTime.Now, "Bitcoin");
     }
 }

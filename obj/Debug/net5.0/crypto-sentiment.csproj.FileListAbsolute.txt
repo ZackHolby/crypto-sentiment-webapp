@@ -225,3 +225,16 @@ C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Tweetinvi.Security
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Tweetinvi.Streams.dll
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Tweetinvi.WebLogic.dll
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Tweetinvi.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Aspose.Pdf.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Aspose.Words.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\GroupDocs.Classification.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\SkiaSharp.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\tizen-armel\native\libSkiaSharp.so
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\tizen-x86\native\libSkiaSharp.so
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll

@@ -106,7 +106,7 @@ using crypto_sentiment.Data;
 
     protected override async Task OnInitializedAsync()
     {
-        tweetData = await TwitterService.getTweetData(DateTime.Now);
+        tweetData = await TwitterService.getTweetData(DateTime.Now, "Bitcoin");
     }
 
 #line default

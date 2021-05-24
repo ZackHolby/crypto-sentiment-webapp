@@ -8,6 +8,8 @@ using Newtonsoft.Json.Linq;
 using crypto_sentiment.Data;
 
 using Tweetinvi;
+using GroupDocs.Classification;
+using System.Text.Json.Serialization;
 
 
 namespace crypto_sentiment.Data
@@ -21,18 +23,42 @@ namespace crypto_sentiment.Data
 
 
 
-        public static Task<TweetData> getTweetData(DateTime startDate)
+        public static async Task<TweetData> getTweetData(DateTime startDate, String cryptoSymbol)
         {
-            var userClient = new TwitterClient(TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SEC,TWITTER_ACCESS_TOK,TWITTER_ACCESS_TOK_SEC);
+            var client = new TwitterClient(TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SEC,TWITTER_ACCESS_TOK,TWITTER_ACCESS_TOK_SEC);
+            
   
+            var resp = await client.SearchV2.SearchTweetsAsync("BTC");
 
-            return Task.FromResult(new TweetData
+            var symb = "No tweets found for symbol "+cryptoSymbol;
+
+            
+            var classifier = new GroupDocs.Classification.SentimentClassifier();
+
+
+            foreach(var tweet in resp.Tweets){
+            
+                symb = cryptoSymbol;
+                Console.WriteLine(tweet.Text);
+                string tweetText = tweet.Text;
+                int totalLen = 0;
+                if(tweetText.Length < 100){
+                    totalLen = tweetText.Length;
+                }else{
+                    totalLen = 100;
+                }
+                var response = classifier.Classify(tweetText.Substring(0,totalLen));
+                Console.WriteLine($"{response.BestClassName}: {response.BestClassProbability}");
+
+            }
+
+            return new TweetData
             {
                 date = startDate,
-                tweetID = "7070",
-                symbol = "ETH",
+                tweetID = "1234",
+                symbol = symb,
                 sentiment = 3.0
-            });
+            };
 
         }
 
