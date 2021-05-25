@@ -1,18 +1,10 @@
-@page "/counter"
+using System;
+using RabbitMQ.Client;
+using RabbitMQ.Client;
+using System.Text;
 
-@using System
-@using RabbitMQ.Client
-@using System.Text
-
-<h1>Counter</h1>
-
-<p>Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="() => callMQservice()">Send msg</button>
-
-@code {
-    private int currentCount = 0;
-
+class MessageQueueService
+{
     public static void callMQservice()
     {
         var factory = new ConnectionFactory() { HostName = "localhost" };

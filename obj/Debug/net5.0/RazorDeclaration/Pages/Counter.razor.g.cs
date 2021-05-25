@@ -7,7 +7,6 @@
 namespace crypto_sentiment.Pages
 {
     #line hidden
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -82,6 +81,27 @@ using crypto_sentiment.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
+using System;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
+using RabbitMQ.Client;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
+using System.Text;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/counter")]
     public partial class Counter : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -91,13 +111,27 @@ using crypto_sentiment.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 9 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
+#line 13 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
        
     private int currentCount = 0;
 
-    private void IncrementCount()
+    public static void callMQservice()
     {
-        currentCount++;
+        var factory = new ConnectionFactory() { HostName = "localhost" };
+        using(var connection = factory.CreateConnection())
+        using(var channel = connection.CreateModel())
+        {
+            channel.QueueDeclare(queue: "hello", durable: false, exclusive: false, autoDelete: false, arguments: null);
+
+            string message = "Hello World ur a flamer anand!";
+            var body = Encoding.UTF8.GetBytes(message);
+
+            channel.BasicPublish(exchange: "", routingKey: "hello", basicProperties: null, body: body);
+            Console.WriteLine(" [x] Sent {0}", message);
+        }
+
+        Console.WriteLine(" Press [enter] to exit.");
+        Console.ReadLine();
     }
 
 #line default

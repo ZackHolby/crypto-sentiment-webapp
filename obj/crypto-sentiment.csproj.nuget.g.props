@@ -21,5 +21,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgTweetinviAPI Condition=" '$(PkgTweetinviAPI)' == '' ">C:\Users\Zack\.nuget\packages\tweetinviapi\5.0.4</PkgTweetinviAPI>
+    <PkgRabbitMQ Condition=" '$(PkgRabbitMQ)' == '' ">C:\Users\Zack\.nuget\packages\rabbitmq\3.6.2</PkgRabbitMQ>
   </PropertyGroup>
 </Project>

@@ -238,3 +238,4 @@ C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\tizen-x86
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\win-x64\native\libSkiaSharp.dll
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\RabbitMQ.Client.dll
