@@ -65,6 +65,14 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "RabbitMQ": {
+              "target": "Package",
+              "version": "[3.6.2, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.1, )"
+            },
             "TweetinviAPI": {
               "target": "Package",
               "version": "[5.0.4, )"
