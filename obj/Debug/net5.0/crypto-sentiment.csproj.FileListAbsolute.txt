@@ -242,3 +242,5 @@ C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\RabbitMQ.Client.dl
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\System.Net.Http.Formatting.dll
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\Zack\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\System.Json.dll
+C:\Users\Zack\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Bitcoin.razor.g.cs
+C:\Users\Zack\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Bitcoin.razor.g.cs

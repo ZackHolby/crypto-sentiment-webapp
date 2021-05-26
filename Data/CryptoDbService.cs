@@ -18,6 +18,10 @@ namespace crypto_sentiment.Models {
         return await _context.Currencies.FindAsync(id);
       }
 
+      public async Task<List<CryptoData>> GetCryptoDataBySymbolAsync(string cryptoSymbol) {
+        return await _context.Currencies.Where(x => x.symbol == cryptoSymbol).ToListAsync();;
+      }
+
       public async Task<CryptoData> InsertCryptoDataAsync(CryptoData data) {
         _context.Currencies.Add(data);
         await _context.SaveChangesAsync();
