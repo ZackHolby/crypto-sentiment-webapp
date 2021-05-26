@@ -1,34 +1,28 @@
 @page "/counter"
 
-@using System
-@using RabbitMQ.Client
-@using System.Text
+@using crypto_sentiment.Data
+@using System.Linq;
+@using System.Text.Json;
+@using Newtonsoft.Json.Linq;
+@using Microsoft.EntityFrameworkCore;
+@inject TweetAPIService tweetAPIservice
 
 <h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
 
-<button class="btn btn-primary" @onclick="() => callMQservice()">Send msg</button>
+<p>Current Sentiment: @tweetData</p>
 
 @code {
     private int currentCount = 0;
 
-    public static void callMQservice()
+    private string tweetData;
+
+    protected override async Task OnInitializedAsync()
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" };
-        using(var connection = factory.CreateConnection())
-        using(var channel = connection.CreateModel())
-        {
-            channel.QueueDeclare(queue: "hello", durable: false, exclusive: false, autoDelete: false, arguments: null);
+        tweetData = await tweetAPIservice.GetTweetSentiment("bitcoin");
 
-            string message = "Hello World!";
-            var body = Encoding.UTF8.GetBytes(message);
+    } 
 
-            channel.BasicPublish(exchange: "", routingKey: "hello", basicProperties: null, body: body);
-            Console.WriteLine(" [x] Sent {0}", message);
-        }
 
-        Console.WriteLine(" Press [enter] to exit.");
-        Console.ReadLine();
-    }
 }

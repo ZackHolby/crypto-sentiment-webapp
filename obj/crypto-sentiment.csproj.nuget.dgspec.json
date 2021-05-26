@@ -47,6 +47,10 @@
               "target": "Package",
               "version": "[21.1.0, )"
             },
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -72,6 +76,10 @@
             "RabbitMQ.Client": {
               "target": "Package",
               "version": "[6.2.1, )"
+            },
+            "System.Json": {
+              "target": "Package",
+              "version": "[4.7.1, )"
             },
             "TweetinviAPI": {
               "target": "Package",

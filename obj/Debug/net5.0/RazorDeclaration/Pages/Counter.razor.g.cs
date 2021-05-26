@@ -7,8 +7,8 @@
 namespace crypto_sentiment.Pages
 {
     #line hidden
+    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
@@ -83,21 +83,35 @@ using crypto_sentiment.Shared;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
-using System;
+using crypto_sentiment.Data;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
-using RabbitMQ.Client;
+using System.Linq;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
-using System.Text;
+using System.Text.Json;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
+using Newtonsoft.Json.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
+using Microsoft.EntityFrameworkCore;
 
 #line default
 #line hidden
@@ -111,32 +125,24 @@ using System.Text;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 13 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
+#line 16 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Counter.razor"
        
     private int currentCount = 0;
 
-    public static void callMQservice()
+    private string tweetData;
+
+    protected override async Task OnInitializedAsync()
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" };
-        using(var connection = factory.CreateConnection())
-        using(var channel = connection.CreateModel())
-        {
-            channel.QueueDeclare(queue: "hello", durable: false, exclusive: false, autoDelete: false, arguments: null);
+        tweetData = await tweetAPIservice.GetTweetSentiment("bitcoin");
 
-            string message = "Hello World ur a flamer anand!";
-            var body = Encoding.UTF8.GetBytes(message);
+    } 
 
-            channel.BasicPublish(exchange: "", routingKey: "hello", basicProperties: null, body: body);
-            Console.WriteLine(" [x] Sent {0}", message);
-        }
 
-        Console.WriteLine(" Press [enter] to exit.");
-        Console.ReadLine();
-    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TweetAPIService tweetAPIservice { get; set; }
     }
 }
 #pragma warning restore 1591
