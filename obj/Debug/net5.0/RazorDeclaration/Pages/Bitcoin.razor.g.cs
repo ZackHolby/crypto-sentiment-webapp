@@ -4,12 +4,11 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace crypto_sentiment.Shared
+namespace crypto_sentiment.Pages
 {
     #line hidden
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
@@ -82,7 +81,36 @@ using crypto_sentiment.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
+using crypto_sentiment.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
+using System.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
+using Microsoft.EntityFrameworkCore;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
+using crypto_sentiment.Models;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/bitcoin")]
+    public partial class Bitcoin : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -90,20 +118,24 @@ using crypto_sentiment.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 44 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Shared\NavMenu.razor"
+#line 48 "C:\Users\Zack\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
        
-    private bool collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private List<CryptoData> btcList;
 
-    private void ToggleNavMenu()
+    protected override async Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
-    }
+        btcList = await cryptoDbService.GetCryptoDataBySymbolAsync("BTC");
+        Console.WriteLine(btcList.Count);
+
+    } 
+
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoDbService cryptoDbService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoService cryptoservice { get; set; }
     }
 }
 #pragma warning restore 1591
