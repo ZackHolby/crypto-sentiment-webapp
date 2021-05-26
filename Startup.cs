@@ -33,6 +33,7 @@ namespace crypto_sentiment
             services.AddSingleton<CryptoService>();
             services.AddSingleton<TwitterService>();
             services.AddScoped<CryptoDbService>();
+            services.AddSingleton<TweetAPIService>();
             services.AddDbContext<CryptoDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
