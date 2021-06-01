@@ -1,30 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj": {}
+    "C:\\Users\\zackh\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj": {
+    "C:\\Users\\zackh\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
+        "projectUniqueName": "C:\\Users\\zackh\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
         "projectName": "crypto-sentiment",
-        "projectPath": "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
-        "packagesPath": "C:\\Users\\Zack\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Zack\\Coding\\crypto-sentiment-webapp\\obj\\",
+        "projectPath": "C:\\Users\\zackh\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
+        "packagesPath": "C:\\Users\\zackh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zackh\\Coding\\crypto-sentiment-webapp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Zack\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\zackh\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -104,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
