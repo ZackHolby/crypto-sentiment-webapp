@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using crypto_sentiment.Models;
 
 namespace crypto_sentiment.Migrations
 {
     [DbContext(typeof(CryptoDbContext))]
-    partial class CryptoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210601193745_new_pc_migration")]
+    partial class new_pc_migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,40 +52,40 @@ namespace crypto_sentiment.Migrations
                     b.HasData(
                         new
                         {
-                            cryptoID = "beda3f8a-8a23-40f0-b8d9-4e616a90fad4",
+                            cryptoID = "6d28bdcb-87f7-475e-8755-2fe9521f457f",
                             currPrice = 1000.0,
                             currencyID = 1,
-                            date = new DateTime(2021, 6, 1, 15, 51, 40, 949, DateTimeKind.Local).AddTicks(4255),
+                            date = new DateTime(2021, 6, 1, 15, 37, 45, 299, DateTimeKind.Local).AddTicks(1692),
                             market_cap = 10L,
                             slug = "Bitcoin",
                             symbol = "BTC"
                         },
                         new
                         {
-                            cryptoID = "a86ca76c-b2c0-4c8f-805c-411248879f4b",
+                            cryptoID = "c80c2e61-fd5d-4d0e-b7e8-21a1188e7d63",
                             currPrice = 2000.0,
                             currencyID = 2,
-                            date = new DateTime(2021, 6, 1, 15, 51, 40, 950, DateTimeKind.Local).AddTicks(7290),
+                            date = new DateTime(2021, 6, 1, 15, 37, 45, 300, DateTimeKind.Local).AddTicks(5095),
                             market_cap = 20L,
                             slug = "Ethereum",
                             symbol = "ETH"
                         },
                         new
                         {
-                            cryptoID = "a857740d-c25b-4a92-8ab2-bc310213e3bf",
+                            cryptoID = "617ae0d7-976f-4750-989c-abf7c1c7a99e",
                             currPrice = 3000.0,
                             currencyID = 3,
-                            date = new DateTime(2021, 6, 1, 15, 51, 40, 950, DateTimeKind.Local).AddTicks(7317),
+                            date = new DateTime(2021, 6, 1, 15, 37, 45, 300, DateTimeKind.Local).AddTicks(5122),
                             market_cap = 30L,
                             slug = "Cardano",
                             symbol = "ADA"
                         },
                         new
                         {
-                            cryptoID = "d5340578-6369-4e42-8eb0-6f4505d93622",
+                            cryptoID = "067572e3-dbfa-44f3-b552-297de9ec127b",
                             currPrice = 4000.0,
                             currencyID = 4,
-                            date = new DateTime(2021, 6, 1, 15, 51, 40, 950, DateTimeKind.Local).AddTicks(7322),
+                            date = new DateTime(2021, 6, 1, 15, 37, 45, 300, DateTimeKind.Local).AddTicks(5127),
                             market_cap = 40L,
                             slug = "Chainlink",
                             symbol = "LINK"
