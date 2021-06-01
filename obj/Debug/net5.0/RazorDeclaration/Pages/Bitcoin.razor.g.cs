@@ -118,7 +118,7 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
+#line 69 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
        
 
     private List<CryptoData> btcList;
