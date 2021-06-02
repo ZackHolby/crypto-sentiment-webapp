@@ -6,6 +6,7 @@
 @using crypto_sentiment.Models
 @inject CryptoService cryptoservice
 @inject CryptoDbService cryptoDbService
+@inject TweetAPIService tweetAPIservice
 
 <h1>Bitcoin</h1>
 
@@ -19,21 +20,32 @@ else
     <div class="container">
         <div class="row">
             <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-                <p>Bitcoin</p>
+                <h3>Bitcoin</h3>
+                <br />
+                <p>@btcList.First().slug</p>
             </div>
             <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-                 <p>Current Price</p>   
+                 <h3>Current Price</h3>
+                 <br />
+                 <p>@btcList.First().currPrice</p>   
             </div>
             <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-                <p>Market Cap</p>
+                <h3>Market Cap</h3>
+                <br />
+                <p>@btcList.First().market_cap</p>
+                
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6 offset-lg-0 col-md- offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-                <p>Sentiment</p>
+                <h3>Sentiment</h3>
+                <br />
+                <p>@sentimentScore</p>
             </div>
             <div class="col-lg-6 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-                <p>Last Updated</p>
+                <h3>Last Updated</h3>
+                <br />
+                <p>@btcList.First().date.ToShortDateString()</p>
             </div>
         </div>
     </div>
@@ -69,12 +81,21 @@ else
 @code {
 
     private List<CryptoData> btcList;
+    private List<CryptoData> newList;
+    private CryptoData addedData;
+    private string sentimentScore;
 
     protected override async Task OnInitializedAsync()
     {
+        newList = cryptoservice.refreshCryptoData(DateTime.Now);
+        foreach(var datapoint in newList){
+            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
+        }
         btcList = await cryptoDbService.GetCryptoDataBySymbolAsync("BTC");
+        sentimentScore = await tweetAPIservice.GetTweetSentiment("bitcoin");
         Console.WriteLine(btcList.Count);
 
-    } 
+    }
+
 
 }

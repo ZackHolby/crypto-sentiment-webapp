@@ -118,22 +118,32 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 69 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
+#line 81 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
        
 
     private List<CryptoData> btcList;
+    private List<CryptoData> newList;
+    private CryptoData addedData;
+    private string sentimentScore;
 
     protected override async Task OnInitializedAsync()
     {
+        newList = cryptoservice.refreshCryptoData(DateTime.Now);
+        foreach(var datapoint in newList){
+            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
+        }
         btcList = await cryptoDbService.GetCryptoDataBySymbolAsync("BTC");
+        sentimentScore = await tweetAPIservice.GetTweetSentiment("bitcoin");
         Console.WriteLine(btcList.Count);
 
-    } 
+    }
+
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TweetAPIService tweetAPIservice { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoDbService cryptoDbService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoService cryptoservice { get; set; }
     }
