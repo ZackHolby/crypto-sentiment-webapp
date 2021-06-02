@@ -8,12 +8,10 @@
 @inject CryptoDbService cryptoDbService
 @inject TweetAPIService tweetAPIservice
 
-<h1>Bitcoin</h1>
-
 
 @if (btcList == null)
 {
-    <p><em>Loading...</em></p>
+    <div class="spinner-border text-dark"></div>
 }
 else
 {
@@ -22,7 +20,7 @@ else
             <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
                 <h3>Bitcoin</h3>
                 <br />
-                <p>@btcList.First().slug</p>
+                <p>@btcList.First().symbol</p>
             </div>
             <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
                  <h3>Current Price</h3>
@@ -45,10 +43,12 @@ else
             <div class="col-lg-6 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
                 <h3>Last Updated</h3>
                 <br />
-                <p>@btcList.First().date.ToShortDateString()</p>
+                <p>@btcList.First().date</p>
             </div>
         </div>
     </div>
+    <br/>
+    <br/>
     <table class="table">
         <thead>
             <tr>
