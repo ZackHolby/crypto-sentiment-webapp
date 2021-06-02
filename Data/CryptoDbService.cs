@@ -19,7 +19,8 @@ namespace crypto_sentiment.Models {
       }
 
       public async Task<List<CryptoData>> GetCryptoDataBySymbolAsync(string cryptoSymbol) {
-        return await _context.Currencies.Where(x => x.symbol == cryptoSymbol).ToListAsync();;
+        return await _context.Currencies.Where(x => x.symbol == cryptoSymbol).OrderByDescending(s => s.date).ToListAsync();
+
       }
 
       public async Task<CryptoData> InsertCryptoDataAsync(CryptoData data) {
