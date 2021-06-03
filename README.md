@@ -18,7 +18,7 @@ $ dotnet watch run
 
 #### Use smss to connect to local DB using following command as Server Name:
 ```sh
-$ (localdb)\\mssqllocaldb
+$ localhost\\SQLEXPRESS
 ```	
 
 
