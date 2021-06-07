@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using crypto_sentiment.Models;
 
 namespace crypto_sentiment.Migrations
 {
     [DbContext(typeof(CryptoDbContext))]
-    partial class CryptoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210607161756_init_migration")]
+    partial class init_migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -18,7 +18,7 @@ namespace crypto_sentiment.Models {
           currPrice = 1000.0,
           symbol = "BTC",
           slug = "Bitcoin",
-          market_cap = (long)10
+          marketCap = (long)10
         }, new {
           date =  DateTime.Now,
           cryptoID = Guid.NewGuid().ToString(),
@@ -26,7 +26,7 @@ namespace crypto_sentiment.Models {
           currPrice = 2000.0,
           symbol = "ETH",
           slug = "Ethereum",
-          market_cap = (long)20
+          marketCap = (long)20
         }, new {
           date = DateTime.Now,
           cryptoID = Guid.NewGuid().ToString(),
@@ -34,7 +34,7 @@ namespace crypto_sentiment.Models {
           currPrice = 3000.0,
           symbol = "ADA",
           slug = "Cardano",
-          market_cap = (long)30
+          marketCap = (long)30
         }, new {
           date = DateTime.Now,
           cryptoID = Guid.NewGuid().ToString(),
@@ -42,7 +42,7 @@ namespace crypto_sentiment.Models {
           currPrice = 4000.0,
           symbol = "LINK",
           slug = "Chainlink",
-          market_cap = (long)40
+          marketCap = (long)40
         }
       );
     }

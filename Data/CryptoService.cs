@@ -45,7 +45,7 @@ namespace crypto_sentiment.Data
                     currPrice = (double)cryptoObject["data"][i]["quote"]["USD"]["price"],
                     symbol = (string)cryptoObject["data"][i]["symbol"],
                     slug = (string)cryptoObject["data"][i]["slug"],
-                    market_cap = (long)cryptoObject["data"][i]["quote"]["USD"]["market_cap"]
+                    marketCap = (long)cryptoObject["data"][i]["quote"]["USD"]["marketCap"]
                 };
                 dataList.Add(respData);
             }

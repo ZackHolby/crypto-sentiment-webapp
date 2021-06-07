@@ -82,6 +82,13 @@ using crypto_sentiment.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998

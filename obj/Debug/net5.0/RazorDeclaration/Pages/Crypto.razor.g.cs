@@ -127,10 +127,6 @@ using crypto_sentiment.Models;
     protected override async Task OnInitializedAsync()
     {
         cryptoDatas = await cryptoDbService.GetCryptosAsync();
-        newList = cryptoservice.refreshCryptoData(DateTime.Now);
-        foreach(var datapoint in newList){
-            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
-        }
     } 
 
 
