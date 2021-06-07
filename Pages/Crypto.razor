@@ -35,7 +35,7 @@ else
                     <td>@cryptoData.cryptoID</td>
                     <td>@cryptoData.symbol</td>
                     <td>@cryptoData.currPrice</td>
-                    <td>@cryptoData.market_cap</td>
+                    <td>@cryptoData.marketCap</td>
                     <td>@cryptoData.slug</td>
                 </tr>
             }
@@ -53,10 +53,6 @@ else
     protected override async Task OnInitializedAsync()
     {
         cryptoDatas = await cryptoDbService.GetCryptosAsync();
-        newList = cryptoservice.refreshCryptoData(DateTime.Now);
-        foreach(var datapoint in newList){
-            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
-        }
     } 
 
 }

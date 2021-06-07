@@ -37,7 +37,7 @@ namespace crypto_sentiment.Models {
           return null;
 
         data.currPrice = s.currPrice;
-        data.market_cap = s.market_cap;
+        data.marketCap = s.marketCap;
 
         _context.Currencies.Update(data);
         await _context.SaveChangesAsync();
