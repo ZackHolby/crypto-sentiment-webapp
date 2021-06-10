@@ -9,6 +9,7 @@ namespace crypto_sentiment.Pages
     #line hidden
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
@@ -81,35 +82,6 @@ using crypto_sentiment.Shared;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
-using crypto_sentiment.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
-using System.Linq;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
-using Microsoft.EntityFrameworkCore;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
-using crypto_sentiment.Models;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/crypto")]
     public partial class Crypto : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -117,24 +89,6 @@ using crypto_sentiment.Models;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 48 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Crypto.razor"
-       
-
-    private List<CryptoData> cryptoDatas;
-    private List<CryptoData> newList;
-    private CryptoData addedData;
-    protected override async Task OnInitializedAsync()
-    {
-        cryptoDatas = await cryptoDbService.GetCryptosAsync();
-    } 
-
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoDbService cryptoDbService { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoService cryptoservice { get; set; }
     }
 }
 #pragma warning restore 1591

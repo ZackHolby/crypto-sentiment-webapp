@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "gIFN6P38JK4DVoH0PlKgsdynIjEx3lEDBCeW84HiZADtt+j7PQbVnCGT+Cj8OhFFw2XY9snWXuWo6MSrXqoPqQ==",
+  "dgSpecHash": "mhlWKlPwgyg+rr2mKUs+osGTETtrV2HTEaS+amAo9X20MzzQh/lcFw/grmPG877kHl0AUdiUuvEvjphmYbJEsg==",
   "success": true,
   "projectFilePath": "C:\\Users\\zackh\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zackh\\.nuget\\packages\\aspose.pdf\\19.9.0\\aspose.pdf.19.9.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\aspose.words\\19.9.0\\aspose.words.19.9.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\autofac\\4.9.4\\autofac.4.9.4.nupkg.sha512",
+    "C:\\Users\\zackh\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\groupdocs.classification\\21.1.0\\groupdocs.classification.21.1.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
