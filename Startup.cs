@@ -30,8 +30,8 @@ namespace crypto_sentiment
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
-            services.AddSingleton<CryptoService>();
-            //services.AddScoped<CryptoDbService>();
+            services.AddSingleton<CryptoDbService>();
+            services.AddScoped<DbContext, CryptoDbContext>();
             services.AddSingleton<TweetAPIService>();
 
             services.AddDbContextFactory<CryptoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

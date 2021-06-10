@@ -1,12 +1,12 @@
-@* @page "/bitcoin"
+@page "/bitcoin"
 
 @using crypto_sentiment.Data
 @using System.Linq;
 @using Microsoft.EntityFrameworkCore;
-@using crypto_sentiment.Models
-@inject CryptoService cryptoservice
+@using crypto_sentiment.Models;
 @inject CryptoDbService cryptoDbService
 @inject TweetAPIService tweetAPIservice
+@inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
 
 
 @if (btcList == null)
@@ -38,7 +38,7 @@ else
             <div class="col-lg-6 offset-lg-0 col-md- offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
                 <h3>Sentiment</h3>
                 <br />
-                <p>@sentimentScore</p>
+                <p>10</p>
             </div>
             <div class="col-lg-6 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
                 <h3>Last Updated</h3>
@@ -81,21 +81,17 @@ else
 @code {
 
     private List<CryptoData> btcList;
-    private List<CryptoData> newList;
-    private CryptoData addedData;
-    private string sentimentScore;
 
     protected override async Task OnInitializedAsync()
     {
-        newList = cryptoservice.refreshCryptoData(DateTime.Now);
-        foreach(var datapoint in newList){
-            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
+        using (var context = contextFactory.CreateDbContext())
+        {
+            btcList= await context.Currencies.Where(x => x.currPrice > 32000).OrderByDescending(s => s.date).ToListAsync();
         }
-        btcList = await cryptoDbService.GetCryptoDataBySymbolAsync("BTC");
-        sentimentScore = await tweetAPIservice.GetTweetSentiment("bitcoin");
+                
         Console.WriteLine(btcList.Count);
 
     }
 
 
-} *@
+}
