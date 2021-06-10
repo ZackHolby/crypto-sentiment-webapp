@@ -129,12 +129,12 @@ using Microsoft.EntityFrameworkCore;
        
     private int currentCount = 0;
 
-    private string tweetData;
+    private int count;
 
     protected override async Task OnInitializedAsync()
     {
-        tweetData = await tweetAPIservice.GetTweetSentiment("bitcoin");
-
+        using CryptoDbContext cryptoDbContext = contextFactory.CreateDbContext();
+        count = await cryptoDbContext.Currencies.CountAsync();
     } 
 
 
@@ -142,7 +142,7 @@ using Microsoft.EntityFrameworkCore;
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TweetAPIService tweetAPIservice { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory { get; set; }
     }
 }
 #pragma warning restore 1591

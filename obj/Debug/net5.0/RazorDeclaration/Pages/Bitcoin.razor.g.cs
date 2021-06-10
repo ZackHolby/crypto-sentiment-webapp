@@ -9,6 +9,7 @@ namespace crypto_sentiment.Pages
     #line hidden
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
@@ -81,35 +82,6 @@ using crypto_sentiment.Shared;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
-using crypto_sentiment.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
-using System.Linq;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 5 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
-using Microsoft.EntityFrameworkCore;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
-using crypto_sentiment.Models;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/bitcoin")]
     public partial class Bitcoin : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -117,35 +89,6 @@ using crypto_sentiment.Models;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 81 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
-       
-
-    private List<CryptoData> btcList;
-    private List<CryptoData> newList;
-    private CryptoData addedData;
-    private string sentimentScore;
-
-    protected override async Task OnInitializedAsync()
-    {
-        newList = cryptoservice.refreshCryptoData(DateTime.Now);
-        foreach(var datapoint in newList){
-            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
-        }
-        btcList = await cryptoDbService.GetCryptoDataBySymbolAsync("BTC");
-        sentimentScore = await tweetAPIservice.GetTweetSentiment("bitcoin");
-        Console.WriteLine(btcList.Count);
-
-    }
-
-
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TweetAPIService tweetAPIservice { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoDbService cryptoDbService { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoService cryptoservice { get; set; }
     }
 }
 #pragma warning restore 1591

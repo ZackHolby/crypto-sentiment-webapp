@@ -366,3 +366,4 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.Views.pdb
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.csproj.CopyComplete
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.genruntimeconfig.cache
+C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Dapper.dll

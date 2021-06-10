@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using crypto_sentiment.Models;
 
-namespace crypto_sentiment.Models {
+namespace crypto_sentiment.Data {
   public class CryptoDbContextFactory : IDesignTimeDbContextFactory<CryptoDbContext> {
     public CryptoDbContext CreateDbContext(string[] args) {
       var optionsBuilder = new DbContextOptionsBuilder<CryptoDbContext>();
