@@ -118,7 +118,7 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 48 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 50 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;
@@ -131,7 +131,7 @@ using crypto_sentiment.Models;
         using (var context = contextFactory.CreateDbContext())
         {
             searchList = await context.Currencies.Where(b => b.symbol.Contains(searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
-            await InvokeAsync(StateHasChanged);
+            NavigationManager.NavigateTo("/crypto/" + searchTerm);
         }
         Console.WriteLine("Called func");
     }
@@ -154,6 +154,7 @@ using crypto_sentiment.Models;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private TweetAPIService tweetAPIservice { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoDbService cryptoDbService { get; set; }
