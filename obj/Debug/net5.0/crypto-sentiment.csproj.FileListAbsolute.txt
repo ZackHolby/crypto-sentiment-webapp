@@ -367,3 +367,8 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.csproj.CopyComplete
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.genruntimeconfig.cache
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Dapper.dll
+C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Search.razor.g.cs
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Search.razor.g.cs
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Home.razor.g.cs
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Home.razor.g.cs

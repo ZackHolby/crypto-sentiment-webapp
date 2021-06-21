@@ -26,10 +26,10 @@ namespace crypto_sentiment.Data {
         }
       }
 
-      public async Task<List<CryptoData>> GetCryptoDataBySymbolAsync(string cryptoSymbol) {
+      public async Task<List<CryptoData>> GetCryptoDataBySymbolAsync(string cryptoSymbolOrSlug) {
         using (var context = _context.CreateDbContext())
         {
-            return await context.Currencies.Where(x => x.symbol == cryptoSymbol).OrderByDescending(s => s.date).ToListAsync();
+            return await context.Currencies.Where(x => x.symbol == cryptoSymbolOrSlug || x.slug == cryptoSymbolOrSlug).OrderByDescending(s => s.date).ToListAsync();
         }
         
 

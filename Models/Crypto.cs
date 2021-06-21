@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using System;
 
 
@@ -13,6 +14,7 @@ namespace crypto_sentiment.Models {
         [Required]
         public double currPrice { get; set; }
 
+        
         [Required]
         public int currencyID { get; set; }
 
@@ -22,7 +24,6 @@ namespace crypto_sentiment.Models {
 
         public string slug { get; set; }
 
-        [Required]
         public string symbol { get; set; }
 
 
