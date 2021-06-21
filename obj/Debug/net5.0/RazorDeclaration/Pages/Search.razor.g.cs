@@ -126,13 +126,9 @@ using crypto_sentiment.Models;
     [Parameter]    
     public string searchTerm {get;set;}
 
-    async Task SearchForCrypto()
+    void SearchForCrypto()
     {
-        using (var context = contextFactory.CreateDbContext())
-        {
-            searchList = await context.Currencies.Where(b => b.symbol.Contains(searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
-            NavigationManager.NavigateTo("/crypto/" + searchTerm);
-        }
+        NavigationManager.NavigateTo("/crypto/" + searchTerm, forceLoad: true);
         Console.WriteLine("Called func");
     }
 
