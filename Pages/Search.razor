@@ -7,6 +7,8 @@
 @inject CryptoDbService cryptoDbService
 @inject TweetAPIService tweetAPIservice
 @inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
+@inject NavigationManager NavigationManager
+    
 
 
 @if (searchList == null)
@@ -57,7 +59,7 @@ else
         using (var context = contextFactory.CreateDbContext())
         {
             searchList = await context.Currencies.Where(b => b.symbol.Contains(searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
-            await InvokeAsync(StateHasChanged);
+            NavigationManager.NavigateTo("/crypto/" + searchTerm);
         }
         Console.WriteLine("Called func");
     }
