@@ -1,0 +1,79 @@
+@page "/crypto/{searchTerm}"
+
+@using crypto_sentiment.Data
+@using System.Linq;
+@using Microsoft.EntityFrameworkCore;
+@using crypto_sentiment.Models;
+@inject CryptoDbService cryptoDbService
+@inject TweetAPIService tweetAPIservice
+@inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
+
+
+@if (searchList == null)
+{
+    <div class="spinner-border text-dark"></div>
+    <h1>Blazor is @searchTerm!</h1>
+}
+else
+{
+    <input type="text" @bind-value="@searchTerm" />
+    <input type="button" value="Search" @onclick="() => SearchForCrypto()"/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>CryptoID</th>
+                <th>Symbol</th>
+                <th>Current Price</th>
+                <th>Market Cap</th>
+                <th>Slug</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cryptoData in searchList)
+            {
+                <tr>
+                    <td>@cryptoData.date.ToShortDateString()</td>
+                    <td>@cryptoData.cryptoID</td>
+                    <td>@cryptoData.symbol</td>
+                    <td>@cryptoData.currPrice</td>
+                    <td>@cryptoData.marketCap</td>
+                    <td>@cryptoData.slug</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    private List<CryptoData> searchList;
+
+    [Parameter]    
+    public string searchTerm {get;set;}
+
+    async Task SearchForCrypto()
+    {
+        using (var context = contextFactory.CreateDbContext())
+        {
+            searchList = await context.Currencies.Where(b => b.symbol.Contains(searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
+            await InvokeAsync(StateHasChanged);
+        }
+        Console.WriteLine("Called func");
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        using (var context = contextFactory.CreateDbContext())
+        {
+            searchList = await context.Currencies.Where(b => b.symbol.Contains(searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
+        }
+        Console.WriteLine(searchList.Count());
+        Console.WriteLine("Hello");
+
+    }
+
+
+
+}
