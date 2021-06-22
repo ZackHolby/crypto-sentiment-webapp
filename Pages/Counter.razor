@@ -1,0 +1,28 @@
+@page "/counter"
+
+@using crypto_sentiment.Data
+@using System.Linq;
+@using System.Text.Json;
+@using Newtonsoft.Json.Linq;
+@using Microsoft.EntityFrameworkCore;
+@inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<p>Current Sentiment: @count</p>
+
+@code {
+    private int currentCount = 0;
+
+    private int count;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using CryptoDbContext cryptoDbContext = contextFactory.CreateDbContext();
+        count = await cryptoDbContext.Currencies.CountAsync();
+    } 
+
+
+}
