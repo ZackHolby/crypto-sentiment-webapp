@@ -14,12 +14,9 @@
 @if (searchList == null)
 {
     <div class="spinner-border text-dark"></div>
-    <h1>Blazor is @searchTerm!</h1>
 }
 else
 {
-    <input type="text" @bind-value="@searchTerm" />
-    <input type="button" value="Search" @onclick="() => SearchForCrypto()"/>
     <table class="table">
         <thead>
             <tr>
@@ -54,21 +51,14 @@ else
     [Parameter]    
     public string searchTerm {get;set;}
 
-    void SearchForCrypto()
-    {
-        NavigationManager.NavigateTo("/crypto/" + searchTerm, forceLoad: true);
-        Console.WriteLine("Called func");
-    }
-
 
     protected override async Task OnInitializedAsync()
     {
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(b => b.symbol.Contains(searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
         }
-        Console.WriteLine(searchList.Count());
-        Console.WriteLine("Hello");
+        Console.WriteLine("Returned this many results from search: "+searchList.Count());
 
     }
 

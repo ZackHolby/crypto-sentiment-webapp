@@ -118,7 +118,7 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 47 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;
@@ -126,21 +126,14 @@ using crypto_sentiment.Models;
     [Parameter]    
     public string searchTerm {get;set;}
 
-    void SearchForCrypto()
-    {
-        NavigationManager.NavigateTo("/crypto/" + searchTerm, forceLoad: true);
-        Console.WriteLine("Called func");
-    }
-
 
     protected override async Task OnInitializedAsync()
     {
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(b => b.symbol.Contains(searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
         }
-        Console.WriteLine(searchList.Count());
-        Console.WriteLine("Hello");
+        Console.WriteLine("Returned this many results from search: "+searchList.Count());
 
     }
 

@@ -1,5 +1,13 @@
 @inherits LayoutComponentBase
 @using Microsoft.AspNetCore.Mvc.Rendering;
+@using crypto_sentiment.Data
+@using System.Linq;
+@using Microsoft.EntityFrameworkCore;
+@using crypto_sentiment.Models;
+@inject CryptoDbService cryptoDbService
+@inject TweetAPIService tweetAPIservice
+@inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
+@inject NavigationManager NavigationManager
 
 <div class="page">
     <div class="sidebar">
@@ -8,7 +16,8 @@
 
     <div class="main">
         <div class="top-row px-4">
-
+            <input type="text" @bind-value="@searchTerm" />
+            <input type="button" value="Search" @onclick="() => SearchForCrypto()"/>
         </div>
 
         <div class="content px-4">
@@ -16,3 +25,19 @@
         </div>
     </div>
 </div>
+
+
+@code {
+
+    [Parameter]    
+    public string searchTerm {get;set;}
+
+    void SearchForCrypto()
+    {
+        NavigationManager.NavigateTo("/crypto/" + searchTerm, forceLoad: true);
+        Console.WriteLine("Called func");
+    }
+
+
+
+}
