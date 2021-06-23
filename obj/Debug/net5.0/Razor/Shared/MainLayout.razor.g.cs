@@ -79,6 +79,20 @@ using crypto_sentiment.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
 using Microsoft.AspNetCore.Mvc.Rendering;
 

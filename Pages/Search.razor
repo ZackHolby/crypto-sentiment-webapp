@@ -1,5 +1,9 @@
 @page "/crypto/{searchTerm}"
 
+
+@using System.Globalization
+@using Radzen
+@using Radzen.Blazor
 @using crypto_sentiment.Data
 @using System.Linq;
 @using Microsoft.EntityFrameworkCore;
@@ -17,6 +21,62 @@
 }
 else
 {
+
+
+    <h1 style="text-align: center;">@searchTerm Chart</h1>
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-sm-offset-0">
+            <RadzenChart>
+                <RadzenLineSeries Data="@cryptoArray" CategoryProperty="date" Title="@searchTerm" ValueProperty="currPrice">
+                    <RadzenMarkers MarkerType="MarkerType.Circle" />
+                </RadzenLineSeries>
+                <RadzenCategoryAxis Padding="5" FormatString="{0:hh:mm tt}" Step=@span> 
+                    <RadzenAxisTitle Text="Time (UTC)" />
+                </RadzenCategoryAxis>
+                <RadzenValueAxis Formatter="@FormatAsUSD">
+                    <RadzenGridLines Visible="true" />
+                    <RadzenAxisTitle Text="Current Price ($)" />
+                </RadzenValueAxis>
+            </RadzenChart>
+        </div
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+            <h3>Bitcoin</h3>
+            <br />
+            <p>@cryptoArray[0].symbol</p>
+        </div>
+        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+                <h3>Current Price</h3>
+                <br />
+                <p>@Math.Round(cryptoArray[0].currPrice,2)</p>   
+        </div>
+        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+            <h3>Market Cap</h3>
+            <br />
+            <p>@cryptoArray[0].marketCap</p>
+            
+        </div>
+        
+        <div class="col-lg-6 offset-lg-0 col-md- offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+            <h3>Sentiment</h3>
+            <br />
+            <p>10</p>
+        </div>
+        <div class="col-lg-6 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+            <h3>Last Updated</h3>
+            <br />
+            <p>@cryptoArray[0].date</p>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+
     <table class="table">
         <thead>
             <tr>
@@ -47,9 +107,12 @@ else
 @code {
 
     private List<CryptoData> searchList;
+    CryptoData[] cryptoArray = new CryptoData[10];
 
     [Parameter]    
     public string searchTerm {get;set;}
+
+    TimeSpan span = TimeSpan.FromMinutes(5);
 
 
     protected override async Task OnInitializedAsync()
@@ -58,9 +121,18 @@ else
         {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
         }
+
+        cryptoArray = searchList.ToArray();
+        Console.WriteLine(cryptoArray[0].date.ToString("hh:mm:ss tt",CultureInfo.InvariantCulture));
         Console.WriteLine("Returned this many results from search: "+searchList.Count());
 
     }
+
+    string FormatAsUSD(object value)
+    {
+        return ((double)value).ToString("C0", CultureInfo.CreateSpecificCulture("en-US"));
+    }
+
 
 
 
