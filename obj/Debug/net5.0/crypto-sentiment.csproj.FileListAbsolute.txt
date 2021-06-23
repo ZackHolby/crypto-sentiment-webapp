@@ -374,3 +374,5 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Home.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
+C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Radzen.Blazor.dll
+C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\System.Linq.Dynamic.Core.dll

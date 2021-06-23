@@ -82,28 +82,49 @@ using crypto_sentiment.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
-using crypto_sentiment.Data;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 4 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
-using System.Linq;
+using System.Globalization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
-using Microsoft.EntityFrameworkCore;
+using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 6 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 7 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+using crypto_sentiment.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+using System.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+using Microsoft.EntityFrameworkCore;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
 using crypto_sentiment.Models;
 
 #line default
@@ -118,13 +139,16 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 107 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;
+    CryptoData[] cryptoArray = new CryptoData[10];
 
     [Parameter]    
     public string searchTerm {get;set;}
+
+    TimeSpan span = TimeSpan.FromMinutes(5);
 
 
     protected override async Task OnInitializedAsync()
@@ -133,9 +157,18 @@ using crypto_sentiment.Models;
         {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
         }
+
+        cryptoArray = searchList.ToArray();
+        Console.WriteLine(cryptoArray[0].date.ToString("hh:mm:ss tt",CultureInfo.InvariantCulture));
         Console.WriteLine("Returned this many results from search: "+searchList.Count());
 
     }
+
+    string FormatAsUSD(object value)
+    {
+        return ((double)value).ToString("C0", CultureInfo.CreateSpecificCulture("en-US"));
+    }
+
 
 
 
