@@ -3,10 +3,10 @@ Blazor webapp using CoinMarketCap API to pull crypto data and analyze sentiment 
 
 ### API calls
 - ##### CoinMarketCap
-    CoinMarketCap API calls are limited to 333 each day so a call will be scheduled for every 5 mins for market data
+    CoinMarketCap API calls are limited to 333 each day so a call will be scheduled for every 5 mins for market data using Azure Function pull
 
 - ##### Twitter
-    Twitter API calls will be ran synchronously with CoinMarketCap to scrape twitter and calculate sentiment based on coin you are searching for
+    Twitter API calls will be ran synchronously with search on web app to scrape twitter and calculate sentiment based on coin you are searching for
 
 
 
@@ -16,9 +16,9 @@ Blazor webapp using CoinMarketCap API to pull crypto data and analyze sentiment 
 $ dotnet watch run
 ```	
 
-#### Use smss to connect to local DB using following command as Server Name:
+#### Use smss to connect to cloud DB using following command as Server Name (will have to provide credentials sepearte):
 ```sh
-$ localhost\\SQLEXPRESS
+$ crypto-sentiment-sqlserver.database.windows.net
 ```	
 
 
