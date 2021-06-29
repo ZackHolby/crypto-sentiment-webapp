@@ -143,19 +143,22 @@ using crypto_sentiment.Models;
        
 
     private List<CryptoData> searchList;
-    CryptoData[] cryptoArray = new CryptoData[10];
+    CryptoData[] cryptoArray = new CryptoData[100];
 
     [Parameter]    
     public string searchTerm {get;set;}
 
-    TimeSpan span = TimeSpan.FromMinutes(5);
+    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(5);
+    TimeSpan spanLastHour = TimeSpan.FromMinutes(10);
+
+    TimeSpan spanLastDay = TimeSpan.FromMinutes(60);
 
 
     protected override async Task OnInitializedAsync()
     {
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(10).ToListAsync();
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
         }
 
         cryptoArray = searchList.ToArray();
@@ -167,6 +170,15 @@ using crypto_sentiment.Models;
     string FormatAsUSD(object value)
     {
         return ((double)value).ToString("C0", CultureInfo.CreateSpecificCulture("en-US"));
+    }
+
+    //need to add dropdown to switch time and repopulate chart and data
+    async Task refreshPage()
+    {
+        using (var context = contextFactory.CreateDbContext())
+        {
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(100).ToListAsync();
+        }
     }
 
 
