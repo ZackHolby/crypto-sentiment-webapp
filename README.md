@@ -8,9 +8,20 @@ Blazor webapp using CoinMarketCap API to pull crypto data and analyze sentiment 
 - ##### Twitter
     Twitter API calls will be ran synchronously with search on web app to scrape twitter and calculate sentiment based on coin you are searching for
 
+### Database schema
+
+| Property |  Type | Description |
+| ------ | ------ | ------ |
+| cryptoID | nvarchar(450) / Primary Key | GUID for cryptocurrency pull to store in database |
+| currPrice | float | Price at time of data pull of cryptocurrency |
+| currencyID | int | ID of cryptocurrency given by CoinMarketCap API |
+| date | datetime(7) | Datetime of data pull of cryptocurrency |
+| marketCap | bigint | Current market cap of respective cryptocurrency |
+| slug | nvarchar(max) | Full name of cryptocurrency (Ex. bitcoin) |
+| symbol | nvarchar(max) | Abbreviated name of cryptocurrency (Ex.  BTC) |
 
 
-## Helpful Notes
+# Helpful Notes
 #### Start .NET server for blazor app: 
 ```sh
 $ dotnet watch run
@@ -20,5 +31,3 @@ $ dotnet watch run
 ```sh
 $ crypto-sentiment-sqlserver.database.windows.net
 ```	
-
-
