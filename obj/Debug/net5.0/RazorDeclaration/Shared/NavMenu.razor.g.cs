@@ -108,6 +108,9 @@ using Radzen.Blazor;
        
     private bool collapseNavMenu = true;
 
+    [Parameter]    
+    public string searchTerm {get;set;}
+
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
