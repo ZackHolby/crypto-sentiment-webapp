@@ -139,7 +139,7 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 107 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 146 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;
@@ -148,10 +148,15 @@ using crypto_sentiment.Models;
     [Parameter]    
     public string searchTerm {get;set;}
 
-    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(5);
+    [Parameter]    
+    public int timeSelect {get;set;} = 60;
+
+
+
+    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(1);
     TimeSpan spanLastHour = TimeSpan.FromMinutes(10);
 
-    TimeSpan spanLastDay = TimeSpan.FromMinutes(60);
+    TimeSpan spanLastDay = TimeSpan.FromMinutes(120);
 
 
     protected override async Task OnInitializedAsync()
@@ -173,12 +178,25 @@ using crypto_sentiment.Models;
     }
 
     //need to add dropdown to switch time and repopulate chart and data
-    async Task refreshPage()
+    async Task refreshPage(int timeSel)
     {
+        timeSelect = timeSel;
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(100).ToListAsync();
+            if (timeSel == 15)
+            {
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(4).ToListAsync();
+            }
+            else if (timeSel == 60)
+            {
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(13).ToListAsync();
+            }
+            else if (timeSel == 1440)
+            {
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(289).ToListAsync();
+            }
         }
+        cryptoArray = searchList.ToArray();
     }
 
 
