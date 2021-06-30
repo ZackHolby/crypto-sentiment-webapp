@@ -23,25 +23,64 @@ else
 {
 
 
-    <h1 style="text-align: center;">@searchTerm Chart</h1>
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1 style="text-align: center;">@searchTerm Chart</h1>
+        </div>
+        <div class="col-md-3 d-flex justify-content-center">
+            <div class="dropdown">
+                @if(timeSelect == 15){
+                <button class="dropbtn">@timeSelect min</button>
+                }
+                else if(timeSelect == 60){
+                <button class="dropbtn">1 hr</button>
+                }
+                else{
+                <button class="dropbtn">24 hr</button>
+                }
+                <div class="dropdown-content">
+                    <button @onclick="() => refreshPage(15)">15 m</button>
+                    <button @onclick="() => refreshPage(60)">1 hr</button>
+                    <button @onclick="() => refreshPage(1440)">24 hr</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
     <div class="row">
         <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-sm-offset-0">
+            
             <RadzenChart>
                 <RadzenLineSeries Data="@cryptoArray" CategoryProperty="date" Title="@searchTerm" ValueProperty="currPrice">
                     <RadzenMarkers MarkerType="MarkerType.Circle" />
                 </RadzenLineSeries>
-                <RadzenCategoryAxis Padding="5" FormatString="{0:hh:mm tt}" Step=@spanLastHour> 
-                    <RadzenAxisTitle Text="Time (UTC)" />
-                </RadzenCategoryAxis>
+                @if(timeSelect == 15){
+                    <RadzenCategoryAxis Padding="5" FormatString="{0:hh:mm tt}" Step=@spanLastFifteen> 
+                        <RadzenAxisTitle Text="Time (UTC)" />
+                    </RadzenCategoryAxis>
+                }
+                else if(timeSelect == 60){
+                    <RadzenCategoryAxis Padding="5" FormatString="{0:hh:mm tt}" Step=@spanLastHour> 
+                        <RadzenAxisTitle Text="Time (UTC)" />
+                    </RadzenCategoryAxis>
+                }
+                else{
+                    <RadzenCategoryAxis Padding="5" FormatString="{0:hh:mm tt}" Step=@spanLastDay> 
+                        <RadzenAxisTitle Text="Time (UTC)" />
+                    </RadzenCategoryAxis>
+                }
                 <RadzenValueAxis Formatter="@FormatAsUSD">
                     <RadzenGridLines Visible="true" />
                     <RadzenAxisTitle Text="Current Price ($)" />
                 </RadzenValueAxis>
             </RadzenChart>
-        </div
+            
+        </div>
     </div>
     <br />
     <br />
+    <p>@timeSelect</p>
     <br />
     <div class="row">
         <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
@@ -112,10 +151,15 @@ else
     [Parameter]    
     public string searchTerm {get;set;}
 
-    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(5);
+    [Parameter]    
+    public int timeSelect {get;set;} = 60;
+
+
+
+    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(1);
     TimeSpan spanLastHour = TimeSpan.FromMinutes(10);
 
-    TimeSpan spanLastDay = TimeSpan.FromMinutes(60);
+    TimeSpan spanLastDay = TimeSpan.FromMinutes(120);
 
 
     protected override async Task OnInitializedAsync()
@@ -137,12 +181,25 @@ else
     }
 
     //need to add dropdown to switch time and repopulate chart and data
-    async Task refreshPage()
+    async Task refreshPage(int timeSel)
     {
+        timeSelect = timeSel;
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(100).ToListAsync();
+            if (timeSel == 15)
+            {
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(4).ToListAsync();
+            }
+            else if (timeSel == 60)
+            {
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(13).ToListAsync();
+            }
+            else if (timeSel == 1440)
+            {
+            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(289).ToListAsync();
+            }
         }
+        cryptoArray = searchList.ToArray();
     }
 
 
