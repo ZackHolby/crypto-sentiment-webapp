@@ -105,3 +105,7 @@ button, .btn-link {
     background-color: #33A1FF;
     cursor: pointer;
   }
+
+  h3{
+    text-decoration: underline;
+  }
