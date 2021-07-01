@@ -70,7 +70,6 @@ button, .btn-link {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
     min-width: 300px;
     z-index: 1;
   }
@@ -81,9 +80,10 @@ button, .btn-link {
         border: none;
         color: white;
         padding: 5px 5px;
+        margin: 2px 0px;
         text-align: center;
         text-decoration: none;
-        display: inline-block;
+        display: block;
         font-size: 20px;
         cursor: pointer;
   }
