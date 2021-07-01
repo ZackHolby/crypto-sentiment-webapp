@@ -154,10 +154,10 @@ using crypto_sentiment.Models;
 
 
 
-    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(1);
-    TimeSpan spanLastHour = TimeSpan.FromMinutes(10);
+    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(4);
+    TimeSpan spanLastHour = TimeSpan.FromMinutes(15);
 
-    TimeSpan spanLastDay = TimeSpan.FromMinutes(120);
+    TimeSpan spanLastDay = TimeSpan.FromMinutes(360);
 
 
     protected override async Task OnInitializedAsync()

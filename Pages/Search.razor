@@ -83,11 +83,11 @@ else
     <br />
     <br />
     <div class="row">
-        <div class="col-lg-2 offset-lg-1 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+        <div class="col-lg-2 offset-lg-1 col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
             <h3>Cryptocurrency</h3>
             <p>@cryptoArray[0].symbol</p>
         </div>
-        <div class="col-lg-2 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+        <div class="col-lg-2 offset-lg-0 col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
             <h3>Current Price</h3>
 
             <p>$@Convert.ToDecimal(Math.Round(cryptoArray[0].currPrice,2)).ToString("#,##0.00")</p>
@@ -98,13 +98,13 @@ else
             }
                    
         </div>
-        <div class="col-lg-2 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+        <div class="col-lg-2 offset-lg-0 col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
             <h3>Market Cap</h3>
             <p>$@Convert.ToDecimal(cryptoArray[0].marketCap).ToString("#,##0.00")</p>
             
         </div>
         
-        <div class="col-lg-2 offset-lg-0 col-md- offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+        <div class="col-lg-2 offset-lg-0 col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
             <h3>Sentiment</h3>
             @if(stringToDouble(sentiment) >= 0){
                     <p style="color:green;">@Math.Round(stringToDouble(sentiment),3)%</p>
@@ -112,7 +112,7 @@ else
                     <p style="color:red;">@Math.Round(stringToDouble(sentiment),3)%</p>
                 }
         </div>
-        <div class="col-lg-2 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+        <div class="col-lg-2 offset-lg-0 col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
             <h3>Last Updated</h3>
             <p>@cryptoArray[0].date</p>
         </div>
@@ -163,10 +163,10 @@ else
 
 
 
-    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(1);
-    TimeSpan spanLastHour = TimeSpan.FromMinutes(10);
+    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(4);
+    TimeSpan spanLastHour = TimeSpan.FromMinutes(15);
 
-    TimeSpan spanLastDay = TimeSpan.FromMinutes(120);
+    TimeSpan spanLastDay = TimeSpan.FromMinutes(360);
 
 
     protected override async Task OnInitializedAsync()
