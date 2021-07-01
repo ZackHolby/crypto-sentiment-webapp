@@ -139,10 +139,11 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 146 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 152 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;
+    string sentiment;
     CryptoData[] cryptoArray = new CryptoData[100];
 
     [Parameter]    
@@ -167,9 +168,14 @@ using crypto_sentiment.Models;
         }
 
         cryptoArray = searchList.ToArray();
+        sentiment = await tweetAPIservice.GetTweetSentiment(searchTerm);
         Console.WriteLine(cryptoArray[0].date.ToString("hh:mm:ss tt",CultureInfo.InvariantCulture));
         Console.WriteLine("Returned this many results from search: "+searchList.Count());
 
+    }
+
+    double stringToDouble(string str){
+        return Convert.ToDouble(str);
     }
 
     string FormatAsUSD(object value)
@@ -178,6 +184,15 @@ using crypto_sentiment.Models;
     }
 
     //need to add dropdown to switch time and repopulate chart and data
+    double percentChangeCurrPrice(CryptoData[] arr){
+        int arrLen = arr.Length;
+        double change = ((arr[0].currPrice - arr[arrLen - 1].currPrice)/arr[arrLen-1].currPrice)*100;
+        return change;
+    }
+
+
+
+    
     async Task refreshPage(int timeSel)
     {
         timeSelect = timeSel;

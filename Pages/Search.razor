@@ -12,6 +12,7 @@
 @inject TweetAPIService tweetAPIservice
 @inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
 @inject NavigationManager NavigationManager
+
     
 
 
@@ -82,31 +83,37 @@ else
     <br />
     <br />
     <div class="row">
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
-            <h3>Bitcoin</h3>
-            <br />
+        <div class="col-lg-2 offset-lg-1 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+            <h3>Cryptocurrency</h3>
             <p>@cryptoArray[0].symbol</p>
         </div>
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
-                <h3>Current Price</h3>
-                <br />
-                <p>@Math.Round(cryptoArray[0].currPrice,2)</p>   
+        <div class="col-lg-2 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+            <h3>Current Price</h3>
+
+            <p>$@Convert.ToDecimal(Math.Round(cryptoArray[0].currPrice,2)).ToString("#,##0.00")</p>
+            @if(percentChangeCurrPrice(cryptoArray) >= 0){
+                <p style="color:green;">(@Math.Round(percentChangeCurrPrice(cryptoArray),2)%)</p>
+            }else{
+                <p style="color:red;">(@Math.Round(percentChangeCurrPrice(cryptoArray),2)%)</p>
+            }
+                   
         </div>
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+        <div class="col-lg-2 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
             <h3>Market Cap</h3>
-            <br />
-            <p>@cryptoArray[0].marketCap</p>
+            <p>$@Convert.ToDecimal(cryptoArray[0].marketCap).ToString("#,##0.00")</p>
             
         </div>
         
-        <div class="col-lg-6 offset-lg-0 col-md- offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+        <div class="col-lg-2 offset-lg-0 col-md- offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
             <h3>Sentiment</h3>
-            <br />
-            <p>10</p>
+            @if(stringToDouble(sentiment) >= 0){
+                    <p style="color:green;">@Math.Round(stringToDouble(sentiment),3)%</p>
+                }else{
+                    <p style="color:red;">@Math.Round(stringToDouble(sentiment),3)%</p>
+                }
         </div>
-        <div class="col-lg-6 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
+        <div class="col-lg-2 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1 text-center">
             <h3>Last Updated</h3>
-            <br />
             <p>@cryptoArray[0].date</p>
         </div>
     </div>
@@ -145,6 +152,7 @@ else
 @code {
 
     private List<CryptoData> searchList;
+    string sentiment;
     CryptoData[] cryptoArray = new CryptoData[100];
 
     [Parameter]    
@@ -169,9 +177,14 @@ else
         }
 
         cryptoArray = searchList.ToArray();
+        sentiment = await tweetAPIservice.GetTweetSentiment(searchTerm);
         Console.WriteLine(cryptoArray[0].date.ToString("hh:mm:ss tt",CultureInfo.InvariantCulture));
         Console.WriteLine("Returned this many results from search: "+searchList.Count());
 
+    }
+
+    double stringToDouble(string str){
+        return Convert.ToDouble(str);
     }
 
     string FormatAsUSD(object value)
@@ -180,6 +193,15 @@ else
     }
 
     //need to add dropdown to switch time and repopulate chart and data
+    double percentChangeCurrPrice(CryptoData[] arr){
+        int arrLen = arr.Length;
+        double change = ((arr[0].currPrice - arr[arrLen - 1].currPrice)/arr[arrLen-1].currPrice)*100;
+        return change;
+    }
+
+
+
+    
     async Task refreshPage(int timeSel)
     {
         timeSelect = timeSel;
