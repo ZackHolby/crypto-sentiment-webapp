@@ -139,7 +139,7 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 152 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 164 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;
@@ -166,11 +166,9 @@ using crypto_sentiment.Models;
         {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
         }
-
+        
         cryptoArray = searchList.ToArray();
         sentiment = await tweetAPIservice.GetTweetSentiment(searchTerm);
-        Console.WriteLine(cryptoArray[0].date.ToString("hh:mm:ss tt",CultureInfo.InvariantCulture));
-        Console.WriteLine("Returned this many results from search: "+searchList.Count());
 
     }
 
@@ -214,6 +212,12 @@ using crypto_sentiment.Models;
         cryptoArray = searchList.ToArray();
     }
 
+
+    void SearchForCrypto()
+    {
+        NavigationManager.NavigateTo("/crypto/" + searchTerm, forceLoad: true);
+        Console.WriteLine("Called func");
+    }
 
 
 
