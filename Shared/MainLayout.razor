@@ -8,23 +8,34 @@
 @inject TweetAPIService tweetAPIservice
 @inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
 @inject NavigationManager NavigationManager
+@using Blazored.Typeahead
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
 
-    <div class="main">
-        <div class="top-row px-4">
-            <input type="text" @bind-value="@searchTerm" placeholder="Ex. Bitcoin, ETH..."/>
-            <input type="button" value="Search" @onclick="() => SearchForCrypto()"/>
+@if (searchList == null){
+    <p>Loading your content...</p>
+    <div class="spinner-border text-dark" style="align-self: center"></div>
+}
+else{
+    <div class="page">
+        <div class="sidebar">
+            <NavMenu />
         </div>
 
-        <div class="content px-4">
-            @Body
+        <div class="main">
+            
+            <div class="top-row px-4">
+                <RadzenAutoComplete Placeholder="Ex. Bitcoin, ETH" Data=@searchList TextProperty="slug" Change=@(args => OnChange(args, "AutoComplete with placeholder")) Style="padding: 5px 5px 0px 0px" />
+                <input type="button" value="Search" @onclick="() => SearchForCrypto()"/>
+            </div>
+
+            
+
+            <div class="content px-4">
+                @Body
+            </div>
         </div>
     </div>
-</div>
+}
 
 
 @code {
@@ -32,6 +43,36 @@
     [Parameter]    
     public string searchTerm {get;set;}
 
+    public CryptoData searchedData;
+
+    private List<CryptoData> searchList;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        using (var context = contextFactory.CreateDbContext())
+        {
+            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(100).ToListAsync();
+        }
+    }
+
+    private async Task<IEnumerable<CryptoData>> SearchCrypto(string searchTerm)
+    {
+        using (var context = contextFactory.CreateDbContext())
+        {
+            Console.WriteLine("Searching...");
+            return await Task.FromResult(context.Currencies.Where(b => (b.symbol.Contains(searchTerm) || b.slug.Contains(searchTerm))).ToList());
+        }
+        //|| x.slug.ToLower().Contains(searchTerm.ToLower()
+        
+    }
+
+    void OnChange(object value, string name)
+    {
+        Console.WriteLine($"{name} value changed to {value}");
+        searchTerm = Convert.ToString(value);
+
+    }
     void SearchForCrypto()
     {
         NavigationManager.NavigateTo("/crypto/" + searchTerm, forceLoad: true);

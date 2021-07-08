@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "crypto-sentiment/1.0.0": {
         "dependencies": {
+          "Blazored.Typeahead": "4.6.0",
           "Dapper": "2.0.90",
           "GroupDocs.Classification": "21.1.0",
           "Microsoft.AspNet.WebApi.Client": "5.2.7",
@@ -380,6 +381,21 @@
         },
         "compile": {
           "lib/netstandard2.0/Autofac.dll": {}
+        }
+      },
+      "Blazored.Typeahead/4.6.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.0",
+          "Microsoft.AspNetCore.Components.Web": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazored.Typeahead.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazored.Typeahead.dll": {}
         }
       },
       "Dapper/2.0.90": {
@@ -4155,6 +4171,13 @@
       "sha512": "sha512-dYiDG4yoV7GDCoOc66d1sqMmg2gwDyomHKgATuMfhFzYxVpWEltToHVHXI3I9vOEvIXE55S4OZPY0ldiZmZtpA==",
       "path": "autofac/4.9.4",
       "hashPath": "autofac.4.9.4.nupkg.sha512"
+    },
+    "Blazored.Typeahead/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eYViTbA5DmsaUmPO3tUzDxahido811vU0/mNtGfIkA4SqTxN2VAwRJgCmoVxFiHwVWtPjVcNGIpUI44lTe24bg==",
+      "path": "blazored.typeahead/4.6.0",
+      "hashPath": "blazored.typeahead.4.6.0.nupkg.sha512"
     },
     "Dapper/2.0.90": {
       "type": "package",

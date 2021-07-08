@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "vRp9evp4TfdFvViddCMjV1Sx7Vy3q0UY43NIz0o+v44OdDUF2NGVWObsK6J3xmT818evmT9cxfdZK33L2Mw2qA==",
+  "dgSpecHash": "SsqtBw8QF2iTKb5dIihzYAntFPJiiwW7qAqYcGe9X0Ka5W/o6hUSAZSim2p54llFEhju2sPGuGc3Dj15vTjGqQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\zackh\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zackh\\.nuget\\packages\\aspose.pdf\\19.9.0\\aspose.pdf.19.9.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\aspose.words\\19.9.0\\aspose.words.19.9.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\autofac\\4.9.4\\autofac.4.9.4.nupkg.sha512",
+    "C:\\Users\\zackh\\.nuget\\packages\\blazored.typeahead\\4.6.0\\blazored.typeahead.4.6.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\groupdocs.classification\\21.1.0\\groupdocs.classification.21.1.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
