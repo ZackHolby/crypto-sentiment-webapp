@@ -376,3 +376,4 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetC
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Radzen.Blazor.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\System.Linq.Dynamic.Core.dll
+C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Blazored.Typeahead.dll
