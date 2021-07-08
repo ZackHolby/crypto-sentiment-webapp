@@ -24,7 +24,7 @@ namespace crypto_sentiment.Data
                 if (response.IsSuccessStatusCode)
                 {
                     string resp = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine(resp);
+                    Console.WriteLine("Sentiment: "+resp);
                     return resp;
                 }else{
                     Console.WriteLine("FAILURE!");

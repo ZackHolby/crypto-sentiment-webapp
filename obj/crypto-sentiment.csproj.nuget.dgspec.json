@@ -40,10 +40,6 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Blazored.Typeahead": {
-              "target": "Package",
-              "version": "[4.6.0, )"
-            },
             "Dapper": {
               "target": "Package",
               "version": "[2.0.90, )"
@@ -82,10 +78,6 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
-            "RabbitMQ": {
-              "target": "Package",
-              "version": "[3.6.2, )"
-            },
             "RabbitMQ.Client": {
               "target": "Package",
               "version": "[6.2.1, )"
@@ -97,10 +89,6 @@
             "System.Json": {
               "target": "Package",
               "version": "[4.7.1, )"
-            },
-            "TweetinviAPI": {
-              "target": "Package",
-              "version": "[5.0.4, )"
             }
           },
           "imports": [

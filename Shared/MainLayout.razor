@@ -8,12 +8,16 @@
 @inject TweetAPIService tweetAPIservice
 @inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
 @inject NavigationManager NavigationManager
-@using Blazored.Typeahead
+@using Radzen
+@using Radzen.Blazor
 
 
 @if (searchList == null){
-    <p>Loading your content...</p>
-    <div class="spinner-border text-dark" style="align-self: center"></div>
+    <div class="center">
+        <p>Loading your content...</p>
+        <div class="spinner-border text-dark"></div>
+    </div>
+    
 }
 else{
     <div class="page">

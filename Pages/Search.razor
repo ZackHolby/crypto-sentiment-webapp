@@ -18,8 +18,10 @@
 
 @if (searchList == null)
 {
-    <p>Loading your content...</p>
-    <div class="spinner-border text-dark" style="align-self: center"></div>
+    <div class="center">
+        <p>Loading your content...</p>
+        <div class="spinner-border text-dark"></div>
+    </div>
 }
 else if (cryptoArray.Length == 0)
 {
@@ -153,7 +155,7 @@ else
                     <td>@cryptoData.date.ToShortDateString() at @cryptoData.date.ToShortTimeString()</td>
                     <td>@cryptoData.cryptoID</td>
                     <td>@cryptoData.symbol</td>
-                    <td>@Math.Round(cryptoData.currPrice),2)</td>
+                    <td>@Math.Round(cryptoData.currPrice,2)</td>
                     <td>@cryptoData.marketCap</td>
                     <td>@cryptoData.slug</td>
                 </tr>

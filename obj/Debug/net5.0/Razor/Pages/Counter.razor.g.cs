@@ -80,20 +80,13 @@ using crypto_sentiment.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
-using Blazored.Typeahead;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
 using Radzen;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
 using Radzen.Blazor;
 
 #line default
