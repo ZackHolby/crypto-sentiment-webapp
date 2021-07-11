@@ -153,7 +153,7 @@ using Radzen.Blazor;
     {
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(100).ToListAsync();
+            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(1).ToListAsync();
         }
     }
 
@@ -176,7 +176,8 @@ using Radzen.Blazor;
     }
     void SearchForCrypto()
     {
-        NavigationManager.NavigateTo("/crypto/" + searchTerm, forceLoad: true);
+        NavigationManager.NavigateTo("/crypto/" + searchTerm,true);
+        
         Console.WriteLine("Called func");
     }
 

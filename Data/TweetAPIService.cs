@@ -10,12 +10,26 @@ namespace crypto_sentiment.Data
     class TweetAPIService
     {
 
-
+        public async Task<string> getSenti(string coin){
+            using (var client = new HttpClient()){
+                HttpResponseMessage response = await client.GetAsync("http://localhost:3000/api/"+coin);
+                 if (response.IsSuccessStatusCode)
+                {
+                    string resp = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("NEW Sentiment: "+resp);
+                    return resp;
+                }else{
+                    Console.WriteLine("FAILURE!");
+                    return null;
+                }
+            }
+        }
         public async Task<string> GetTweetSentiment(string coin)
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:5001/");
+
+                client.BaseAddress = new Uri("http://localhost:3000/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

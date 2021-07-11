@@ -253,8 +253,6 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.RazorComponent.input.cache
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Bitcoin.razor.g.cs
-C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Counter.razor.g.cs
-C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Crypto.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
@@ -333,8 +331,6 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.RazorCoreGenerate.cache
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\App.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Bitcoin.razor.g.cs
-C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Counter.razor.g.cs
-C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Crypto.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Shared\SurveyPrompt.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\_Imports.razor.g.cs
@@ -359,8 +355,6 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Dapper.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Search.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Search.razor.g.cs
-C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\RazorDeclaration\Pages\Home.razor.g.cs
-C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\Razor\Pages\Home.razor.g.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Radzen.Blazor.dll
