@@ -139,7 +139,7 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 180 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 179 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;

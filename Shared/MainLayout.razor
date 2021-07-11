@@ -28,7 +28,7 @@ else{
         <div class="main">
             
             <div class="top-row px-4">
-                <RadzenAutoComplete Placeholder="Ex. Bitcoin, ETH" Data=@searchList TextProperty="slug" Change=@(args => OnChange(args, "AutoComplete with placeholder")) Style="padding: 5px 5px 0px 0px" />
+                <RadzenAutoComplete Placeholder="Ex. bitcoin, ethereum..." Data=@searchList TextProperty="slug" Change=@(args => OnChange(args, "AutoComplete with placeholder")) Style="padding: 5px 5px 0px 0px" />
                 <input type="button" value="Search" @onclick="() => SearchForCrypto()"/>
             </div>
 
@@ -56,7 +56,7 @@ else{
     {
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(1).ToListAsync();
+            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(100).ToListAsync();
         }
     }
 
