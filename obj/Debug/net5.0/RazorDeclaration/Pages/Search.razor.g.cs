@@ -139,7 +139,7 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 167 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 180 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;
@@ -154,21 +154,24 @@ using crypto_sentiment.Models;
 
 
 
-    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(4);
-    TimeSpan spanLastHour = TimeSpan.FromMinutes(15);
+    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(5);
+    TimeSpan spanLastHour = TimeSpan.FromMinutes(20);
 
-    TimeSpan spanLastDay = TimeSpan.FromMinutes(360);
+    TimeSpan spanLastDay = TimeSpan.FromMinutes(480);
 
 
     protected override async Task OnInitializedAsync()
     {
+        Console.WriteLine("Time before db call: "+DateTime.Now);
         using (var context = contextFactory.CreateDbContext())
         {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
         }
-        
+        Console.WriteLine("Time after db call: "+DateTime.Now);
+        Console.WriteLine("Time before twitter call: "+DateTime.Now);
         cryptoArray = searchList.ToArray();
-        sentiment = await tweetAPIservice.GetTweetSentiment(searchTerm);
+        sentiment = await tweetAPIservice.getSenti(searchTerm);
+        Console.WriteLine("Time after twitter call: "+DateTime.Now);
 
     }
 
@@ -178,7 +181,7 @@ using crypto_sentiment.Models;
 
     string FormatAsUSD(object value)
     {
-        return ((double)value).ToString("C0", CultureInfo.CreateSpecificCulture("en-US"));
+        return "$"+Math.Round((double)value,2).ToString();
     }
 
     //need to add dropdown to switch time and repopulate chart and data
@@ -196,15 +199,15 @@ using crypto_sentiment.Models;
         timeSelect = timeSel;
         using (var context = contextFactory.CreateDbContext())
         {
-            if (timeSel == 15)
+            if (timeSelect == 15)
             {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(4).ToListAsync();
             }
-            else if (timeSel == 60)
+            else if (timeSelect == 60)
             {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(13).ToListAsync();
             }
-            else if (timeSel == 1440)
+            else if (timeSelect == 1440)
             {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(289).ToListAsync();
             }

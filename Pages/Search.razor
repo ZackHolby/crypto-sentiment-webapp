@@ -84,10 +84,11 @@ else
                         <RadzenAxisTitle Text="Time (UTC)" />
                     </RadzenCategoryAxis>
                 }
-                <RadzenValueAxis Formatter="@FormatAsUSD">
+
+                @* <RadzenValueAxis Formatter="@FormatAsUSD">
                     <RadzenGridLines Visible="true" />
                     <RadzenAxisTitle Text="Current Price ($)" />
-                </RadzenValueAxis>
+                </RadzenValueAxis> *@
             </RadzenChart>
             
         </div>
@@ -135,13 +136,12 @@ else
     <br />
     <br />
 
-    <h2 style="text-align: center; text-decoration: underline; ">Recent Data Pulls</h2> 
+    <h2 style="text-align: center; text-decoration: underline; ">@searchTerm.ToLower() recent data pulls</h2> 
     <br />
     <table class="table">
         <thead>
             <tr>
                 <th>Date</th>
-                <th>CryptoID</th>
                 <th>Symbol</th>
                 <th>Current Price</th>
                 <th>Market Cap</th>
@@ -149,16 +149,29 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var cryptoData in searchList)
-            {
-                <tr>
-                    <td>@cryptoData.date.ToShortDateString() at @cryptoData.date.ToShortTimeString()</td>
-                    <td>@cryptoData.cryptoID</td>
-                    <td>@cryptoData.symbol</td>
-                    <td>@Math.Round(cryptoData.currPrice,2)</td>
-                    <td>@cryptoData.marketCap</td>
-                    <td>@cryptoData.slug</td>
-                </tr>
+
+            @if(searchList.Count > 10){
+                @for (int x=0;x<10;x++)
+                {
+                    <tr>
+                        <td>@searchList[x].date.ToShortDateString() at @searchList[x].date.ToShortTimeString()</td>
+                        <td>@searchList[x].symbol</td>
+                        <td>$@Math.Round(searchList[x].currPrice,3)</td>
+                        <td>$@searchList[x].marketCap</td>
+                        <td>@searchList[x].slug</td>
+                    </tr>
+                }
+            }else{
+                @foreach (var cryptoData in searchList)
+                {
+                    <tr>
+                        <td>@cryptoData.date.ToShortDateString() at @cryptoData.date.ToShortTimeString()</td>
+                        <td>@cryptoData.symbol</td>
+                        <td>$@Math.Round(cryptoData.currPrice,2)</td>
+                        <td>$@cryptoData.marketCap</td>
+                        <td>@cryptoData.slug</td>
+                    </tr>
+                }
             }
         </tbody>
     </table>
@@ -178,21 +191,24 @@ else
 
 
 
-    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(4);
-    TimeSpan spanLastHour = TimeSpan.FromMinutes(15);
+    TimeSpan spanLastFifteen = TimeSpan.FromMinutes(5);
+    TimeSpan spanLastHour = TimeSpan.FromMinutes(20);
 
-    TimeSpan spanLastDay = TimeSpan.FromMinutes(360);
+    TimeSpan spanLastDay = TimeSpan.FromMinutes(480);
 
 
     protected override async Task OnInitializedAsync()
     {
+        Console.WriteLine("Time before db call: "+DateTime.Now);
         using (var context = contextFactory.CreateDbContext())
         {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
         }
-        
+        Console.WriteLine("Time after db call: "+DateTime.Now);
+        Console.WriteLine("Time before twitter call: "+DateTime.Now);
         cryptoArray = searchList.ToArray();
-        sentiment = await tweetAPIservice.GetTweetSentiment(searchTerm);
+        sentiment = await tweetAPIservice.getSenti(searchTerm);
+        Console.WriteLine("Time after twitter call: "+DateTime.Now);
 
     }
 
@@ -202,7 +218,7 @@ else
 
     string FormatAsUSD(object value)
     {
-        return ((double)value).ToString("C0", CultureInfo.CreateSpecificCulture("en-US"));
+        return "$"+Math.Round((double)value,2).ToString();
     }
 
     //need to add dropdown to switch time and repopulate chart and data
@@ -220,15 +236,15 @@ else
         timeSelect = timeSel;
         using (var context = contextFactory.CreateDbContext())
         {
-            if (timeSel == 15)
+            if (timeSelect == 15)
             {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(4).ToListAsync();
             }
-            else if (timeSel == 60)
+            else if (timeSelect == 60)
             {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(13).ToListAsync();
             }
-            else if (timeSel == 1440)
+            else if (timeSelect == 1440)
             {
             searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(289).ToListAsync();
             }
