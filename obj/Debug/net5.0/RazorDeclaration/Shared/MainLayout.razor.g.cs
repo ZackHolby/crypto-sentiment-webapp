@@ -153,7 +153,7 @@ using Radzen.Blazor;
     {
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(1).ToListAsync();
+            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(100).ToListAsync();
         }
     }
 

@@ -67,7 +67,7 @@ else
             
             <RadzenChart>
                 <RadzenLineSeries Data="@cryptoArray" CategoryProperty="date" Title="@searchTerm" ValueProperty="currPrice">
-                    <RadzenMarkers MarkerType="MarkerType.Circle" />
+                    
                 </RadzenLineSeries>
                 @if(timeSelect == 15){
                     <RadzenCategoryAxis Padding="5" FormatString="{0:hh:mm tt}" Step=@spanLastFifteen> 
@@ -85,10 +85,9 @@ else
                     </RadzenCategoryAxis>
                 }
 
-                @* <RadzenValueAxis Formatter="@FormatAsUSD">
+                <RadzenValueAxis Formatter="@FormatAsUSD">
                     <RadzenGridLines Visible="true" />
-                    <RadzenAxisTitle Text="Current Price ($)" />
-                </RadzenValueAxis> *@
+                </RadzenValueAxis>
             </RadzenChart>
             
         </div>
