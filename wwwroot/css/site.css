@@ -2,6 +2,7 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    min-width: 340px;
 }
 
 button, .btn-link {
@@ -112,6 +113,13 @@ button, .btn-link {
     cursor: pointer;
   }
 
-  h3{
+  .h3{
     text-decoration: underline;
+  }
+
+
+  @media screen and (max-width: 640px) {
+    .tableContainer{
+      display: none !important;
+    }
   }

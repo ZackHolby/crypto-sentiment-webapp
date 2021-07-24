@@ -1,5 +1,21 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿@inherits LayoutComponentBase
+@using crypto_sentiment.Data
+@using System.Linq;
+@using crypto_sentiment.Models;
+@inject CryptoDbService cryptoDbService
+@inject TweetAPIService tweetAPIservice
+@inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
+@inject NavigationManager NavigationManager
+@using Radzen
+
+
+<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Crypto Sentiment</a>
+    <div class="collapsedSearchbar">
+        <input type="text" @bind="searchTerm" placeholder="Search..">
+        <input type="button" value="Search" @onclick="() => SearchForCrypto()"/>
+    </div>
+    
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,5 +53,12 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+     void SearchForCrypto()
+    {
+        NavigationManager.NavigateTo("/crypto/" + searchTerm,true);
+        
+        Console.WriteLine("Called func");
     }
 }

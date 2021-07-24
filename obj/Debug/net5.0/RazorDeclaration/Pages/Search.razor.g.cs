@@ -139,7 +139,7 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 179 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
+#line 182 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
        
 
     private List<CryptoData> searchList;
@@ -177,6 +177,17 @@ using crypto_sentiment.Models;
 
     double stringToDouble(string str){
         return Convert.ToDouble(str);
+    }
+
+    public string FirstLetterToUpper(string str)
+    {
+        if (str == null)
+            return null;
+
+        if (str.Length > 1)
+            return char.ToUpper(str[0]) + str.Substring(1);
+
+        return str.ToUpper();
     }
 
     string FormatAsUSD(object value)
