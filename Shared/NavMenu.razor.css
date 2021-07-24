@@ -60,3 +60,10 @@
         display: block;
     }
 }
+
+
+@media (min-width: 641px) {
+    .collapsedSearchbar {
+        display: none;
+    }
+}
