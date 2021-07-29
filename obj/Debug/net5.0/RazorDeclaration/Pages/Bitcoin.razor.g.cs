@@ -83,14 +83,14 @@ using crypto_sentiment.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
-using Radzen;
+using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
-using Radzen.Blazor;
+using MudBlazor;
 
 #line default
 #line hidden

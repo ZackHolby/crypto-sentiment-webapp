@@ -82,6 +82,20 @@ using crypto_sentiment.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Bitcoin.razor"
 using crypto_sentiment.Data;
 
@@ -122,18 +136,14 @@ using crypto_sentiment.Models;
        
 
     private List<CryptoData> btcList;
-    private List<CryptoData> newList;
-    private CryptoData addedData;
-    private string sentimentScore;
 
     protected override async Task OnInitializedAsync()
     {
-        newList = cryptoservice.refreshCryptoData(DateTime.Now);
-        foreach(var datapoint in newList){
-            addedData = await cryptoDbService.InsertCryptoDataAsync(datapoint);
+        using (var context = contextFactory.CreateDbContext())
+        {
+            btcList= await context.Currencies.Where(x => x.currPrice > 32000).OrderByDescending(s => s.date).ToListAsync();
         }
-        btcList = await cryptoDbService.GetCryptoDataBySymbolAsync("BTC");
-        sentimentScore = await tweetAPIservice.GetTweetSentiment("bitcoin");
+                
         Console.WriteLine(btcList.Count);
 
     }
@@ -143,9 +153,9 @@ using crypto_sentiment.Models;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private TweetAPIService tweetAPIservice { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoDbService cryptoDbService { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoService cryptoservice { get; set; }
     }
 }
 #pragma warning restore 1591

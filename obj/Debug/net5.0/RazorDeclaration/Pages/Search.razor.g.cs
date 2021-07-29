@@ -82,6 +82,13 @@ using crypto_sentiment.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 4 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
 using System.Globalization;
 
@@ -165,7 +172,7 @@ using crypto_sentiment.Models;
         Console.WriteLine("Time before db call: "+DateTime.Now);
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
+            searchList = await context.Currencies.Where(b => b.slug.Equals(searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
         }
         Console.WriteLine("Time after db call: "+DateTime.Now);
         Console.WriteLine("Time before twitter call: "+DateTime.Now);

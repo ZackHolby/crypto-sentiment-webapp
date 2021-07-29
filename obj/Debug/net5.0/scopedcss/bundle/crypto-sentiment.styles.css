@@ -37,6 +37,8 @@
         display: none;
     }
 
+    
+
     .top-row.auth[b-8s2cww08tf] {
         justify-content: space-between;
     }
@@ -90,6 +92,10 @@
     top: -2px;
 }
 
+.bitcoin[b-nbbge4sxlp]{
+    background-image: "../wwwroot/favicon.ico";
+}
+
 .nav-item[b-nbbge4sxlp] {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
@@ -120,6 +126,14 @@
 .nav-item[b-nbbge4sxlp]  a:hover {
     background-color: rgba(255,255,255,0.1);
     color: white;
+}
+
+.popular[b-nbbge4sxlp]{
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+
 }
 
 @media (min-width: 641px) {

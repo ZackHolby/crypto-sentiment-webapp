@@ -12,7 +12,7 @@ namespace crypto_sentiment.Data
 
         public async Task<string> getSenti(string coin){
             using (var client = new HttpClient()){
-                HttpResponseMessage response = await client.GetAsync("http://localhost:3000/api/"+coin);
+                HttpResponseMessage response = await client.GetAsync("https://twittersentiapi.azurewebsites.net/api/"+coin);
                  if (response.IsSuccessStatusCode)
                 {
                     string resp = await response.Content.ReadAsStringAsync();
