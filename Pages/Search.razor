@@ -136,12 +136,12 @@ else
     <br />
 
     <div class="tableContainer">
-        <h2 style="text-align: center; text-decoration: underline; ">@FirstLetterToUpper(searchTerm.ToLower()) recent data pulls</h2> 
+        <h2 style="text-align: center; text-decoration: underline; ">@FirstLetterToUpper(cryptoArray[0].slug.ToLower()) recent data pulls</h2> 
         <br />
         <table class="table">
             <thead>
                 <tr>
-                    <th>Date</th>
+                    <th>Date (UTC)</th>
                     <th>Symbol</th>
                     <th>Current Price</th>
                     <th>Market Cap</th>
@@ -204,7 +204,7 @@ else
         Console.WriteLine("Time before db call: "+DateTime.Now);
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(b => (b.symbol == searchTerm || b.slug == searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
+            searchList = await context.Currencies.Where(b => b.slug.Equals(searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
         }
         Console.WriteLine("Time after db call: "+DateTime.Now);
         Console.WriteLine("Time before twitter call: "+DateTime.Now);

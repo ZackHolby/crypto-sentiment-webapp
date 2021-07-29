@@ -9,7 +9,6 @@ namespace crypto_sentiment.Shared
     #line hidden
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
@@ -89,6 +88,48 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+using crypto_sentiment.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+using System.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+using Microsoft.EntityFrameworkCore;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+using crypto_sentiment.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+using Radzen.Blazor;
+
+#line default
+#line hidden
+#nullable disable
     public partial class MainLayout : LayoutComponentBase
     {
         #pragma warning disable 1998
@@ -96,6 +137,60 @@ using Microsoft.AspNetCore.Mvc.Rendering;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 45 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+       
+
+    [Parameter]    
+    public string searchTerm {get;set;}
+
+    public CryptoData searchedData;
+
+    private List<CryptoData> searchList;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        using (var context = contextFactory.CreateDbContext())
+        {
+            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(100).ToListAsync();
+        }
+    }
+
+    private async Task<IEnumerable<CryptoData>> SearchCrypto(string searchTerm)
+    {
+        using (var context = contextFactory.CreateDbContext())
+        {
+            Console.WriteLine("Searching...");
+            return await Task.FromResult(context.Currencies.Where(b => (b.symbol.Contains(searchTerm) || b.slug.Contains(searchTerm))).ToList());
+        }
+        //|| x.slug.ToLower().Contains(searchTerm.ToLower()
+        
+    }
+
+    void OnChange(object value, string name)
+    {
+        Console.WriteLine($"{name} value changed to {value}");
+        searchTerm = Convert.ToString(value);
+
+    }
+    void SearchForCrypto()
+    {
+        NavigationManager.NavigateTo("/crypto/" + searchTerm,true);
+        
+        Console.WriteLine("Called func");
+    }
+
+
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TweetAPIService tweetAPIservice { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoDbService cryptoDbService { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -81,14 +81,14 @@ using crypto_sentiment.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
-using Radzen;
+using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
-using Radzen.Blazor;
+using MudBlazor;
 
 #line default
 #line hidden
@@ -108,7 +108,7 @@ using Radzen.Blazor;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(2, "PreferExactMatches", 
+            __builder.AddAttribute(2, "PreferExactMatches", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Boolean>(
 #nullable restore
 #line 1 "C:\Users\zackh\Coding\crypto-sentiment-webapp\App.razor"
                                                                      true
@@ -116,7 +116,7 @@ using Radzen.Blazor;
 #line default
 #line hidden
 #nullable disable
-            );
+            ));
             __builder.AddAttribute(3, "Found", (Microsoft.AspNetCore.Components.RenderFragment<Microsoft.AspNetCore.Components.RouteData>)((routeData) => (__builder2) => {
                 __builder2.OpenComponent<Microsoft.AspNetCore.Components.RouteView>(4);
                 __builder2.AddAttribute(5, "RouteData", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<Microsoft.AspNetCore.Components.RouteData>(

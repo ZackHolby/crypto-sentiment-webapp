@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using crypto_sentiment.Data;
 using crypto_sentiment.Models;
 using Microsoft.EntityFrameworkCore;
+using MudBlazor.Services;
 
 namespace crypto_sentiment
 {
@@ -33,6 +34,7 @@ namespace crypto_sentiment
             services.AddSingleton<CryptoDbService>();
             services.AddScoped<DbContext, CryptoDbContext>();
             services.AddSingleton<TweetAPIService>();
+            services.AddMudServices();
 
             services.AddDbContextFactory<CryptoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDbContext<CryptoDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

@@ -82,6 +82,13 @@ using crypto_sentiment.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -138,7 +145,7 @@ using Radzen.Blazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
+#line 50 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\MainLayout.razor"
        
 
     [Parameter]    
@@ -146,39 +153,32 @@ using Radzen.Blazor;
 
     public CryptoData searchedData;
 
-    private List<CryptoData> searchList;
+    private string[] searchList = {"aave","algorand","amp","ankr","avalanche","axie-infinity","bakerytoken","bancor","basic-attention-token","binance-coin",
+    "binance-usd","bitcoin","bitcoin-bep2","bitcoin-cash","bitcoin-gold","bitcoin-sv","bittorrent","cardano","celo","celsius","chainlink","chiliz","compound",
+    "cosmos","crypto-com-coin","curve-dao-token","dash","decentraland","decred","digibyte","dogecoin","elrond-egld","enjin-coin","eos","ethereum","ethereum-classic",
+    "fantom","filecoin","flow","ftx-token","harmony","hedera-hashgraph","helium","holo","horizen","huobi-token","husd","icon","internet-computer","iota","klaytn","kucoin-token",
+    "kusama","litecoin","maker","mdex","mobilego","monero","multi-collateral-dai","nano","near-protocol","nem","neo","nexo","okb","omg","ontology","pancakeswap","paxos-standard",
+    "polkadot-new","polygon","qtum","quant","ravencoin","revain","shiba-inu","siacoin","solana","stacks","stellar","sushiswap","swissborg","synthetix-network-token","telcoin","terra-luna",
+    "terrausd","tether","tezos","the-graph","the-sandbox","theta","theta-fuel","thorchain","tron","trueusd","uma","uniswap","unus-sed-leo","usd-coin","vechain","voyager-token","waves","wrapped-bitcoin",
+    "xinfin-network","xrp","yearn-finance","zcash","zilliqa"};
 
 
-    protected override async Task OnInitializedAsync()
+
+
+    private async Task<IEnumerable<string>> SearchCryptoList(string value)
     {
-        using (var context = contextFactory.CreateDbContext())
-        {
-            searchList = await context.Currencies.OrderByDescending(s => s.date).Take(100).ToListAsync();
-        }
-    }
-
-    private async Task<IEnumerable<CryptoData>> SearchCrypto(string searchTerm)
-    {
-        using (var context = contextFactory.CreateDbContext())
-        {
-            Console.WriteLine("Searching...");
-            return await Task.FromResult(context.Currencies.Where(b => (b.symbol.Contains(searchTerm) || b.slug.Contains(searchTerm))).ToList());
-        }
-        //|| x.slug.ToLower().Contains(searchTerm.ToLower()
-        
-    }
-
-    void OnChange(object value, string name)
-    {
-        Console.WriteLine($"{name} value changed to {value}");
-        searchTerm = Convert.ToString(value);
-
+         await Task.Delay(5);
+        // if text is null or empty, don't return values (drop-down will not open)
+        if (string.IsNullOrEmpty(value))
+            return new string[0];
+        return searchList.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
     void SearchForCrypto()
     {
+
         NavigationManager.NavigateTo("/crypto/" + searchTerm,true);
         
-        Console.WriteLine("Called func");
+        Console.WriteLine("Called func with searchterm: "+searchTerm);
     }
 
 
