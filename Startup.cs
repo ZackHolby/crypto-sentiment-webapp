@@ -30,7 +30,6 @@ namespace crypto_sentiment
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<CryptoDbService>();
             services.AddScoped<DbContext, CryptoDbContext>();
             services.AddSingleton<TweetAPIService>();
