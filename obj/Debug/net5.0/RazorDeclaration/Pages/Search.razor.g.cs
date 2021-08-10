@@ -159,6 +159,9 @@ using crypto_sentiment.Models;
     [Parameter]    
     public int timeSelect {get;set;} = 60;
 
+    private string[] searchBarList = {};
+
+
 
 
     TimeSpan spanLastFifteen = TimeSpan.FromMinutes(5);
@@ -172,7 +175,7 @@ using crypto_sentiment.Models;
         Console.WriteLine("Time before db call: "+DateTime.Now);
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(b => b.slug.Equals(searchTerm)).OrderByDescending(s => s.date).Take(12).ToListAsync();
+            searchList = context.Currencies.Where(b => b.slug.Equals(searchTerm) || b.symbol.Equals(searchTerm)).OrderByDescending(s => s.date).Take(12).ToList();
         }
         Console.WriteLine("Time after db call: "+DateTime.Now);
         Console.WriteLine("Time before twitter call: "+DateTime.Now);
@@ -236,8 +239,17 @@ using crypto_sentiment.Models;
 
     void SearchForCrypto()
     {
-        NavigationManager.NavigateTo("/crypto/" + searchTerm, forceLoad: true);
+        NavigationManager.NavigateTo("/crypto/" + searchTerm, true);
         Console.WriteLine("Called func");
+    }
+
+    private async Task<IEnumerable<string>> SearchCryptoList(string value)
+    {
+         await Task.Delay(5);
+        // if text is null or empty, don't return values (drop-down will not open)
+        if (string.IsNullOrEmpty(value))
+            return new string[0];
+        return searchBarList.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
 
 

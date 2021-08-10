@@ -10,7 +10,7 @@
 }
 
 .sidebar[b-8s2cww08tf] {
-    background-image: linear-gradient(180deg, rgb(0, 0, 0) 0%, #0b75d8 70%);
+    background-image: linear-gradient(to bottom, #256ff1 70%, #dbdbdb);
 }
 
 .top-row[b-8s2cww08tf] {
@@ -92,9 +92,6 @@
     top: -2px;
 }
 
-.bitcoin[b-nbbge4sxlp]{
-    background-image: "../wwwroot/favicon.ico";
-}
 
 .nav-item[b-nbbge4sxlp] {
     font-size: 0.9rem;
@@ -136,14 +133,17 @@
 
 }
 
+
+
 @media (min-width: 641px) {
     .navbar-toggler[b-nbbge4sxlp] {
         display: none;
-    }
+    } 
 
     .collapse[b-nbbge4sxlp] {
         /* Never collapse the sidebar for wide screens */
         display: block;
+
     }
 }
 
@@ -152,4 +152,5 @@
     .collapsedSearchbar[b-nbbge4sxlp] {
         display: none;
     }
+
 }

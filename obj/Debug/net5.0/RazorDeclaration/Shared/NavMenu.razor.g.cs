@@ -131,7 +131,7 @@ using Radzen;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 65 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\NavMenu.razor"
+#line 68 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 
@@ -141,14 +141,7 @@ using Radzen;
     private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
 
-     private string[] searchList = {"aave","algorand","amp","ankr","avalanche","axie-infinity","bakerytoken","bancor","basic-attention-token","binance-coin",
-    "binance-usd","bitcoin","bitcoin-bep2","bitcoin-cash","bitcoin-gold","bitcoin-sv","bittorrent","cardano","celo","celsius","chainlink","chiliz","compound",
-    "cosmos","crypto-com-coin","curve-dao-token","dash","decentraland","decred","digibyte","dogecoin","elrond-egld","enjin-coin","eos","ethereum","ethereum-classic",
-    "fantom","filecoin","flow","ftx-token","harmony","hedera-hashgraph","helium","holo","horizen","huobi-token","husd","icon","internet-computer","iota","klaytn","kucoin-token",
-    "kusama","litecoin","maker","mdex","mobilego","monero","multi-collateral-dai","nano","near-protocol","nem","neo","nexo","okb","omg","ontology","pancakeswap","paxos-standard",
-    "polkadot-new","polygon","qtum","quant","ravencoin","revain","shiba-inu","siacoin","solana","stacks","stellar","sushiswap","swissborg","synthetix-network-token","telcoin","terra-luna",
-    "terrausd","tether","tezos","the-graph","the-sandbox","theta","theta-fuel","thorchain","tron","trueusd","uma","uniswap","unus-sed-leo","usd-coin","vechain","voyager-token","waves","wrapped-bitcoin",
-    "xinfin-network","xrp","yearn-finance","zcash","zilliqa"};
+     private string[] searchList = {};
 
 
     private void ToggleNavMenu()

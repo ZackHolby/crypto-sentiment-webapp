@@ -18,9 +18,6 @@
     top: -2px;
 }
 
-.bitcoin[b-nbbge4sxlp]{
-    background-image: "../wwwroot/favicon.ico";
-}
 
 .nav-item[b-nbbge4sxlp] {
     font-size: 0.9rem;
@@ -62,14 +59,17 @@
 
 }
 
+
+
 @media (min-width: 641px) {
     .navbar-toggler[b-nbbge4sxlp] {
         display: none;
-    }
+    } 
 
     .collapse[b-nbbge4sxlp] {
         /* Never collapse the sidebar for wide screens */
         display: block;
+
     }
 }
 
@@ -78,4 +78,5 @@
     .collapsedSearchbar[b-nbbge4sxlp] {
         display: none;
     }
+
 }

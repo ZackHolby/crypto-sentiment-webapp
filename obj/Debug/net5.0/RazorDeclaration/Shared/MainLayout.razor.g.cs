@@ -160,8 +160,10 @@ using Radzen.Blazor;
     "kusama","litecoin","maker","mdex","mobilego","monero","multi-collateral-dai","nano","near-protocol","nem","neo","nexo","okb","omg","ontology","pancakeswap","paxos-standard",
     "polkadot-new","polygon","qtum","quant","ravencoin","revain","shiba-inu","siacoin","solana","stacks","stellar","sushiswap","swissborg","synthetix-network-token","telcoin","terra-luna",
     "terrausd","tether","tezos","the-graph","the-sandbox","theta","theta-fuel","thorchain","tron","trueusd","uma","uniswap","unus-sed-leo","usd-coin","vechain","voyager-token","waves","wrapped-bitcoin",
-    "xinfin-network","xrp","yearn-finance","zcash","zilliqa"};
-
+    "xinfin-network","xrp","yearn-finance","zcash","zilliqa","AAVE","ADA","ALGO","AMP","ANKR","ATOM","AVAX","AXS","BAT","BCH","BNB","BNT","BSV","BTC","BTCB","BTG","BTT","BUSD","CAKE","CEL","CELO",
+    "CHSB","CHZ","COMP","CRO","CRV","DAI","DASH","DCR","DGB","DOGE","DOT","EGLD","ENJ","EOS","ETC","ETH","FIL","FLOW","FTM","FTT","GRT","HBAR","HNT","HO","THT","ICP","ICX","KCS","KLAY","KSM","LEO","LINK","LTC","LUNA","MANA",
+    "MATIC","MDXM","IOTA","MKR","NANO","NEAR","NEO","NEXO","OKB","OMG","ONE","ONT","PAX","PERP","PLA","QNT","QTUM","RUNE","RVN","SC","SHIB","SNX","SOL","STX","SUSHI","TELT","FUEL","THETA","TRX","TUSD","UMA","UNI","USDC",
+    "USDT","UST","VET","VGX","WAVES","WBTC","XDC","XEM","XLM","XMR","XRP","XTZ","YFI","ZEC","ZEN","ZIL","ZRX" };
 
 
 
@@ -180,6 +182,16 @@ using Radzen.Blazor;
         
         Console.WriteLine("Called func with searchterm: "+searchTerm);
     }
+
+    MudTheme MyCustomTheme = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Primary = Colors.Blue.Lighten1,
+            Secondary = Colors.Green.Accent4,
+            AppbarBackground = Colors.Red.Default,
+        }
+    };
 
 
 

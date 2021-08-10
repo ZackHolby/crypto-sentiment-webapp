@@ -82,10 +82,6 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
-            "RabbitMQ.Client": {
-              "target": "Package",
-              "version": "[6.2.1, )"
-            },
             "Radzen.Blazor": {
               "target": "Package",
               "version": "[3.6.0, )"
