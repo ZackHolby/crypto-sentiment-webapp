@@ -9,7 +9,6 @@ namespace crypto_sentiment.Pages
     #line hidden
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
@@ -83,15 +82,57 @@ using crypto_sentiment.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+using System.Globalization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+using Radzen;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 6 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
 using Radzen.Blazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
-using MudBlazor;
+#line 7 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+using crypto_sentiment.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+using System.Linq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+using Microsoft.EntityFrameworkCore;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+using crypto_sentiment.Models;
 
 #line default
 #line hidden
@@ -104,6 +145,32 @@ using MudBlazor;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 21 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+       
+
+    DateTime minAgo=DateTime.Now.AddMinutes(-10);
+
+    private List<CryptoData> searchList;
+
+    
+    protected override async Task OnInitializedAsync(){
+        Console.WriteLine(minAgo);
+        using (var context = contextFactory.CreateDbContext())
+        {
+            searchList = await context.Currencies.Where(s => s.date> minAgo).ToListAsync();
+        }
+        Console.WriteLine(searchList.Count);
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private TweetAPIService tweetAPIservice { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private CryptoDbService cryptoDbService { get; set; }
     }
 }
 #pragma warning restore 1591

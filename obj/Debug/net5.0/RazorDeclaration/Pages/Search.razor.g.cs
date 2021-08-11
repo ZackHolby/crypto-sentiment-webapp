@@ -202,7 +202,7 @@ using crypto_sentiment.Models;
 
     string FormatAsUSD(object value)
     {
-        return "$"+Math.Round((double)value,2).ToString();
+        return "$"+Math.Round((double)value,3).ToString();
     }
 
     //need to add dropdown to switch time and repopulate chart and data
