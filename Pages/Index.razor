@@ -1,7 +1,38 @@
 @page "/"
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+@using System.Globalization
+@using Radzen
+@using Radzen.Blazor
+@using crypto_sentiment.Data
+@using System.Linq;
+@using Microsoft.EntityFrameworkCore;
+@using crypto_sentiment.Models;
+@inject CryptoDbService cryptoDbService
+@inject TweetAPIService tweetAPIservice
+@inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
+@inject NavigationManager NavigationManager
 
+<h1 style="text-align:center;">Crypto Sentiment</h1>
+<h3 style="text-align:center;">Get started by searching your favorite Cryptocurrencies above!</h3>
+<div class="hero-image"></div>
+
+
+@code {
+
+    DateTime minAgo=DateTime.Now.AddMinutes(-10);
+
+    private List<CryptoData> searchList;
+
+    
+    protected override async Task OnInitializedAsync(){
+        Console.WriteLine(minAgo);
+        using (var context = contextFactory.CreateDbContext())
+        {
+            searchList = await context.Currencies.Where(s => s.date> minAgo).ToListAsync();
+        }
+        Console.WriteLine(searchList.Count);
+    }
+
+}
 
