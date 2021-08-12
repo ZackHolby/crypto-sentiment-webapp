@@ -8,11 +8,12 @@
 @using System.Linq;
 @using Microsoft.EntityFrameworkCore;
 @using crypto_sentiment.Models;
-@using MoreLinq
 @inject CryptoDbService cryptoDbService
 @inject TweetAPIService tweetAPIservice
 @inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
 @inject NavigationManager NavigationManager
+@using MoreLinq
+@using BlazorStrap
 
 <h1 style="text-align:center;">Crypto Sentiment</h1>
 <h6 class="subtext" style="text-align:center;">Get started by searching your favorite Cryptocurrencies above!</h6>
@@ -36,24 +37,26 @@
         }
     </div>
 </div>
-                
 
 
 @code {
 
     DateTime minAgo=DateTime.Now.AddMinutes(-5);
 
+
     private List<CryptoData> searchList;
 
+
+
     
-    protected override async Task OnInitializedAsync(){
+    protected override void OnInitialized(){
         Console.WriteLine(minAgo);
         using (var context = contextFactory.CreateDbContext())
         {
             searchList = context.Currencies.Where(s => s.date> minAgo).DistinctBy(x => x.slug).OrderByDescending(d => d.date).Take(4).ToList();
         }
         Console.WriteLine(searchList);
-    }
+
 
 }
 

@@ -89,8 +89,13 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 14 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
 using BlazorStrap;
+=======
+#line 13 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using Blazorise;
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
 
 #line default
 #line hidden
@@ -145,7 +150,11 @@ using crypto_sentiment.Models;
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+=======
+#line 15 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
 using MoreLinq;
 
 #line default
@@ -160,21 +169,42 @@ using MoreLinq;
         }
         #pragma warning restore 1998
 #nullable restore
+<<<<<<< HEAD
 #line 42 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
        
 
     DateTime minAgo=DateTime.Now.AddMinutes(-5);
+=======
+#line 53 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+       
+
+    DateTime minAgo=DateTime.Now.AddMinutes(-0);
+
+    CryptoData[] cryptoArray = new CryptoData[13];
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
 
     private List<CryptoData> searchList;
 
+
+
     
-    protected override async Task OnInitializedAsync(){
+    protected override void OnInitialized(){
         Console.WriteLine(minAgo);
         using (var context = contextFactory.CreateDbContext())
         {
+<<<<<<< HEAD
             searchList = context.Currencies.Where(s => s.date> minAgo).DistinctBy(x => x.slug).OrderByDescending(d => d.date).Take(4).ToList();
         }
         Console.WriteLine(searchList);
+=======
+            searchList = context.Currencies.Where(s => s.date >= minAgo).DistinctBy(x => x.slug).OrderByDescending(o => o.percentChange24).Take(6).ToList();
+        }
+
+
+        foreach (CryptoData crypto in searchList){
+            Console.WriteLine(crypto.slug+"had change of "+crypto.percentChange24+"%");
+        }
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
     }
 
 
