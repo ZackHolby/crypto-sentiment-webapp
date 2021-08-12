@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Blazorise.Bootstrap": {
+              "target": "Package",
+              "version": "[0.9.4.3, )"
+            },
+            "Blazorise.Icons.FontAwesome": {
+              "target": "Package",
+              "version": "[0.9.4.3, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.0.90, )"
@@ -89,6 +97,10 @@
             "System.Json": {
               "target": "Package",
               "version": "[4.7.1, )"
+            },
+            "morelinq": {
+              "target": "Package",
+              "version": "[3.3.2, )"
             }
           },
           "imports": [

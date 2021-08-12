@@ -12,6 +12,9 @@ using crypto_sentiment.Data;
 using crypto_sentiment.Models;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
+using Blazorise;
+using Blazorise.Bootstrap;
+using Blazorise.Icons.FontAwesome;
 
 namespace crypto_sentiment
 {
@@ -34,6 +37,7 @@ namespace crypto_sentiment
             services.AddScoped<DbContext, CryptoDbContext>();
             services.AddSingleton<TweetAPIService>();
             services.AddMudServices();
+            services.AddBlazorise( options =>{options.ChangeTextOnKeyPress = true;}).AddBootstrapProviders().AddFontAwesomeIcons();
 
             services.AddDbContextFactory<CryptoDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddDbContext<CryptoDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

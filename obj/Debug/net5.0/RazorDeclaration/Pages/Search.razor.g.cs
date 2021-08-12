@@ -89,6 +89,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using Blazorise;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using MoreLinq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 4 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Search.razor"
 using System.Globalization;
 
@@ -205,12 +219,7 @@ using crypto_sentiment.Models;
         return "$"+Math.Round((double)value,3).ToString();
     }
 
-    //need to add dropdown to switch time and repopulate chart and data
-    double percentChangeCurrPrice(CryptoData[] arr){
-        int arrLen = arr.Length;
-        double change = ((arr[0].currPrice - arr[arrLen - 1].currPrice)/arr[arrLen-1].currPrice)*100;
-        return change;
-    }
+    //need to add dropdown to switch time and repopulate chart and dat
 
 
 
