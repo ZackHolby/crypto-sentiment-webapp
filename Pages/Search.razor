@@ -30,7 +30,7 @@ else if (cryptoArray.Length == 0)
 
     <MudItem xs="10" sm="8" md="4">
         <MudAutocomplete T="string" Label="Ex. Bitcoin, Ethereum..." @bind-Value="searchTerm" SearchFunc="@SearchCryptoList" 
-        ResetValueOnEmptyText="true" CoerceText="true"  CoerceValue="true" AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" OnAdornmentClick="SearchForCrypto" Style="color:white !important" />
+        ResetValueOnEmptyText="true" CoerceText="true"  CoerceValue="true" AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="MudBlazor.Color.Primary" OnAdornmentClick="SearchForCrypto" Style="color:white !important" />
     </MudItem>
 }
 else
@@ -104,10 +104,10 @@ else
             <h3>Current Price</h3>
 
             <p>$@Convert.ToDecimal(Math.Round(cryptoArray[0].currPrice,2)).ToString("#,##0.00")</p>
-            @if(percentChangeCurrPrice(cryptoArray) >= 0){
-                <p style="color:green;">(@Math.Round(percentChangeCurrPrice(cryptoArray),2)%)</p>
+            @if(cryptoArray[0].percentChange24 >= 0){
+                <p style="color:green;">(@Math.Round(cryptoArray[0].percentChange24,2)%)</p>
             }else{
-                <p style="color:red;">(@Math.Round(percentChangeCurrPrice(cryptoArray),2)%)</p>
+                <p style="color:red;">(@Math.Round(cryptoArray[0].percentChange24,2)%)</p>
             }
                    
         </div>
@@ -237,12 +237,7 @@ else
         return "$"+Math.Round((double)value,3).ToString();
     }
 
-    //need to add dropdown to switch time and repopulate chart and data
-    double percentChangeCurrPrice(CryptoData[] arr){
-        int arrLen = arr.Length;
-        double change = ((arr[0].currPrice - arr[arrLen - 1].currPrice)/arr[arrLen-1].currPrice)*100;
-        return change;
-    }
+    //need to add dropdown to switch time and repopulate chart and dat
 
 
 

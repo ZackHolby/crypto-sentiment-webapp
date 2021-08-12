@@ -89,6 +89,20 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using Blazorise;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using MoreLinq;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Shared\NavMenu.razor"
 using crypto_sentiment.Data;
 
