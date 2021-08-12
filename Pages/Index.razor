@@ -22,16 +22,27 @@
 </div>
 
 <h4 style="text-decoration:underline;text-align:center;">Largest Movers in past 24 Hours</h4>
+<p style="text-align:center;">(Top 100 MarketCap)</p>
 <div className="container-fluid d-flex justify-content-center">
     <div class="row">
-        @foreach(CryptoData crypto in searchList){
+        @foreach(CryptoData crypto in moverList){
             <div class="col-lg-3 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-                <BSCard Alignment="Alignment.Center">
-                    <BSCard CardType="CardType.Body">
-                        <BSCard CardType="CardType.Title">Special Title Treatment</BSCard>
-                        <BSCard CardType="CardType.Text">With supporting text below as a natural lead-in to additional content.</BSCard>
+                @if(@crypto.percentChange24 >= 0){
+                    
+                    <BSCard Class="clickable" Color="BlazorStrap.Color.Success" Alignment="Alignment.Center" @onclick='(() => SearchForCryptoRef(crypto.slug))'>
+                        <BSCard CardType="CardType.Body">
+                            <BSCard Class="under" CardType="CardType.Title">@FirstLetterToUpper(crypto.slug) (@crypto.symbol)</BSCard>
+                                <BSCard CardType="CardType.Text">@crypto.percentChange24%</BSCard>
+                        </BSCard>
                     </BSCard>
-                </BSCard>
+                }else{
+                    <BSCard Class="clickable" Color="BlazorStrap.Color.Danger" Alignment="Alignment.Center" @onclick='(() => SearchForCryptoRef(crypto.slug))'>
+                        <BSCard CardType="CardType.Body">
+                            <BSCard Class="under" CardType="CardType.Title">@FirstLetterToUpper(crypto.slug) (@crypto.symbol)</BSCard>
+                                <BSCard CardType="CardType.Text">@crypto.percentChange24%</BSCard>
+                        </BSCard>
+                    </BSCard>
+                }
             </div>
 
         }
@@ -39,10 +50,12 @@
 </div>
 
 @code{
-    DateTime minAgo=DateTime.Now.AddMinutes(-5);
+    DateTime minAgo=DateTime.Now.AddMinutes(-0);
 
 
     private List<CryptoData> searchList;
+
+    private List<CryptoData> moverList;
 
 
 
@@ -51,10 +64,34 @@
         Console.WriteLine(minAgo);
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = context.Currencies.Where(s => s.date> minAgo).DistinctBy(x => x.slug).OrderByDescending(d => d.date).Take(4).ToList();
+            searchList = context.Currencies.Where(s => s.date> minAgo).DistinctBy(x => x.slug).OrderByDescending(d => d.marketCap).Take(100).ToList();
+            moverList = searchList.OrderByDescending(d => Math.Abs(d.percentChange24)).Take(4).ToList();
         }
-        Console.WriteLine(searchList);
+
+        foreach(CryptoData c in moverList){
+            Console.WriteLine(c.slug+ "   "+c.percentChange24);
+        }
+        
 
 
+    }
+
+
+    public string FirstLetterToUpper(string str)
+    {
+        if (str == null)
+            return null;
+
+        if (str.Length > 1)
+            return char.ToUpper(str[0]) + str.Substring(1);
+
+        return str.ToUpper();
+    }
+
+    void SearchForCryptoRef(string refString)
+    {
+        NavigationManager.NavigateTo("/crypto/" + refString,true);
+        
+        Console.WriteLine("Called func");
     }
 }

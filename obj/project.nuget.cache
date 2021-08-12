@@ -1,23 +1,13 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "gDbKyV7GKSUym3ZWPH0p6lFb/UgFXjuZnCPN/UjBqjbmhOetAGfd+VY3g78eGaxBPMbo7vx1XgElErvHizt2xA==",
-=======
-  "dgSpecHash": "OQDpGlBNwtiEvcGdG1n2kAuut22tkbUEOrlELx1jdw1ezMFxwbbrd8ZTsGhigrfeAa6PHE5y2YVSjrwIskZfbA==",
->>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
   "success": true,
   "projectFilePath": "C:\\Users\\zackh\\Coding\\crypto-sentiment-webapp\\crypto-sentiment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zackh\\.nuget\\packages\\aspose.pdf\\19.9.0\\aspose.pdf.19.9.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\aspose.words\\19.9.0\\aspose.words.19.9.0.nupkg.sha512",
-<<<<<<< HEAD
     "C:\\Users\\zackh\\.nuget\\packages\\blazorcomponentutilities\\1.6.0\\blazorcomponentutilities.1.6.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\blazorstrap\\1.5.1\\blazorstrap.1.5.1.nupkg.sha512",
-=======
-    "C:\\Users\\zackh\\.nuget\\packages\\blazorise\\0.9.4.3\\blazorise.0.9.4.3.nupkg.sha512",
-    "C:\\Users\\zackh\\.nuget\\packages\\blazorise.bootstrap\\0.9.4.3\\blazorise.bootstrap.0.9.4.3.nupkg.sha512",
-    "C:\\Users\\zackh\\.nuget\\packages\\blazorise.icons.fontawesome\\0.9.4.3\\blazorise.icons.fontawesome.0.9.4.3.nupkg.sha512",
->>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
     "C:\\Users\\zackh\\.nuget\\packages\\dapper\\2.0.90\\dapper.2.0.90.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\groupdocs.classification\\21.1.0\\groupdocs.classification.21.1.0.nupkg.sha512",
     "C:\\Users\\zackh\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
