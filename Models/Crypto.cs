@@ -26,6 +26,8 @@ namespace crypto_sentiment.Models {
 
         public string symbol { get; set; }
 
+        public double percentChange24 {get;set;}
+
 
 
 
