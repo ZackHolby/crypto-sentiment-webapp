@@ -33,12 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "crypto-sentiment/1.0.0": {
         "dependencies": {
-<<<<<<< HEAD
           "BlazorStrap": "1.5.1",
-=======
-          "Blazorise.Bootstrap": "0.9.4.3",
-          "Blazorise.Icons.FontAwesome": "0.9.4.3",
->>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
           "Dapper": "2.0.90",
           "GroupDocs.Classification": "21.1.0",
           "Microsoft.AspNet.WebApi.Client": "5.2.7",
@@ -369,7 +364,6 @@
           "lib/netstandard2.0/Aspose.Words.dll": {}
         }
       },
-<<<<<<< HEAD
       "BlazorComponentUtilities/1.6.0": {
         "dependencies": {
           "System.Runtime": "4.3.1"
@@ -397,53 +391,6 @@
         },
         "compile": {
           "lib/net5.0/BlazorStrap.dll": {}
-=======
-      "Blazorise/0.9.4.3": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Components": "5.0.7",
-          "Microsoft.AspNetCore.Components.Web": "5.0.7"
-        },
-        "runtime": {
-          "lib/net5.0/Blazorise.dll": {
-            "assemblyVersion": "0.9.4.3",
-            "fileVersion": "0.9.4.3"
-          }
-        },
-        "compile": {
-          "lib/net5.0/Blazorise.dll": {}
-        }
-      },
-      "Blazorise.Bootstrap/0.9.4.3": {
-        "dependencies": {
-          "Blazorise": "0.9.4.3",
-          "Microsoft.AspNetCore.Components": "5.0.7",
-          "Microsoft.AspNetCore.Components.Web": "5.0.7"
-        },
-        "runtime": {
-          "lib/net5.0/Blazorise.Bootstrap.dll": {
-            "assemblyVersion": "0.9.4.3",
-            "fileVersion": "0.9.4.3"
-          }
-        },
-        "compile": {
-          "lib/net5.0/Blazorise.Bootstrap.dll": {}
-        }
-      },
-      "Blazorise.Icons.FontAwesome/0.9.4.3": {
-        "dependencies": {
-          "Blazorise": "0.9.4.3",
-          "Microsoft.AspNetCore.Components": "5.0.7",
-          "Microsoft.AspNetCore.Components.Web": "5.0.7"
-        },
-        "runtime": {
-          "lib/net5.0/Blazorise.Icons.FontAwesome.dll": {
-            "assemblyVersion": "0.9.4.3",
-            "fileVersion": "0.9.4.3"
-          }
-        },
-        "compile": {
-          "lib/net5.0/Blazorise.Icons.FontAwesome.dll": {}
->>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
         }
       },
       "Dapper/2.0.90": {
@@ -4198,7 +4145,6 @@
       "path": "aspose.words/19.9.0",
       "hashPath": "aspose.words.19.9.0.nupkg.sha512"
     },
-<<<<<<< HEAD
     "BlazorComponentUtilities/1.6.0": {
       "type": "package",
       "serviceable": true,
@@ -4212,28 +4158,6 @@
       "sha512": "sha512-yCwLLGbNLXBCzluAqgwipZbwSogatO69AvBdtiq5x30IMn0GK7XSkUV8hmbwqHTAsewEaNNhoLTYAe7KjM2iGQ==",
       "path": "blazorstrap/1.5.1",
       "hashPath": "blazorstrap.1.5.1.nupkg.sha512"
-=======
-    "Blazorise/0.9.4.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-h6y9Vu6II1PB7/Y/4VplB+Tsv2JGUZHiPVFNfMEhNE/IfCndrFQlAvsTiIa3gxCcAxb9vSyHz5gNl6CpHwKRvg==",
-      "path": "blazorise/0.9.4.3",
-      "hashPath": "blazorise.0.9.4.3.nupkg.sha512"
-    },
-    "Blazorise.Bootstrap/0.9.4.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tI54TW5fbyOY4ix6Ij1nn+TrCwmONzkbClfIvriZ/OzdyttOGhJ7p3f/a0jPkuF4XZGHi3UldWsfKwRhTwWalQ==",
-      "path": "blazorise.bootstrap/0.9.4.3",
-      "hashPath": "blazorise.bootstrap.0.9.4.3.nupkg.sha512"
-    },
-    "Blazorise.Icons.FontAwesome/0.9.4.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-S2irD7ZE3vFQVNJ47ZFlvzJ0MEHCfPYGpJVs+0rktO4DPOpCHE39uEAfGzmZFMUkEoUsuIjdUcCEERkaZJI/CQ==",
-      "path": "blazorise.icons.fontawesome/0.9.4.3",
-      "hashPath": "blazorise.icons.fontawesome.0.9.4.3.nupkg.sha512"
->>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
     },
     "Dapper/2.0.90": {
       "type": "package",
