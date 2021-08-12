@@ -20,7 +20,11 @@
     <Import Project="$(NuGetPackageRoot)mudblazor\5.1.0\buildTransitive\MudBlazor.props" Condition="Exists('$(NuGetPackageRoot)mudblazor\5.1.0\buildTransitive\MudBlazor.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\2.2.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\2.2.0\build\netstandard2.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\5.0.6\build\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\5.0.6\build\netcoreapp3.0\Microsoft.EntityFrameworkCore.Design.props')" />
+<<<<<<< HEAD
+    <Import Project="$(NuGetPackageRoot)blazorstrap\1.5.1\buildTransitive\BlazorStrap.props" Condition="Exists('$(NuGetPackageRoot)blazorstrap\1.5.1\buildTransitive\BlazorStrap.props')" />
+=======
     <Import Project="$(NuGetPackageRoot)blazorise\0.9.4.3\buildTransitive\Blazorise.props" Condition="Exists('$(NuGetPackageRoot)blazorise\0.9.4.3\buildTransitive\Blazorise.props')" />
     <Import Project="$(NuGetPackageRoot)blazorise.bootstrap\0.9.4.3\buildTransitive\Blazorise.Bootstrap.props" Condition="Exists('$(NuGetPackageRoot)blazorise.bootstrap\0.9.4.3\buildTransitive\Blazorise.Bootstrap.props')" />
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
   </ImportGroup>
 </Project>

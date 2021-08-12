@@ -13,48 +13,34 @@
 @inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
 @inject NavigationManager NavigationManager
 @using MoreLinq
+@using BlazorStrap
 
 <h1 style="text-align:center;">Crypto Sentiment</h1>
-<h3 style="text-align:center;">Get started by searching your favorite Cryptocurrencies above!</h3>
-<div class="hero-image"></div>
+<h6 class="subtext" style="text-align:center;">Get started by searching your favorite Cryptocurrencies above!</h6>
+<div class="collapsedIMG">
+    <div class="hero-image"></div>
+</div>
+
+<h4 style="text-decoration:underline;text-align:center;">Largest Movers in past 24 Hours</h4>
 <div className="container-fluid d-flex justify-content-center">
     <div class="row">
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-            <Card>
-                <CardBody>
-                    <CardTitle Size="5">Bitcoin</CardTitle>
-                    <CardText>
-                       change %
-                    </CardText>
-                    <Blazorise.Button Color="Blazorise.Color.Primary">Button</Blazorise.Button>
-                </CardBody>
-            </Card>
-            <Card title="Recipe and Music Creator" text="Built a Django Web App that allows users to input ingredients they have in their kitchen. This app then queries an IBM Discovery custom model to generate various recipes. Each recipe has an associated playlist created through Spotify API based on the cuisine of the meal selected."></Card>
-        </div>
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-            <Card title="Custom Interpreter" text="Built a custom interpreter for professor’s custom language, Quandary, with fully functional parsing, static and dynamic checking, mutability, threading, and pre-defined built-in functions through Java OO development practices."></Card>
-        </div>
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-            <Card title="Online Blackjack" text="Team of 4 developed 1v1 Blackjack application to duel friends in Blackjack online and keep statistics on play history. Implemented User Authentication for player profiles to maintain statistics over time. Developed using Ruby on Rails."></Card>
-        </div>
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-            <Card title="Personal site" text="Created a personal webpage to showcase experiences and interests. Used React library to design using component ideology and Bootstrap4 for dyanamic functionality. Azure to deploy and host webpage."></Card>
-        </div>
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-            <Card title="Data Mining" text="2 Projects. Cleaned and analyzed datasets from Kobe Bryant shot data and bike rental in Seoul, Korea. Used Python and Scikit-learn to classify and model datapoints to yield insights for measures of performance."></Card>
-        </div>
-        <div class="col-lg-4 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
-            <Card title="Email Automation Script" text="Wrote Python script to automate emailing process. Data is taken from excel/CSV and populates email with defined content to rapidly send out emails in Outlook."></Card>
-        </div>
+        @foreach(CryptoData crypto in searchList){
+            <div class="col-lg-3 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
+                <BSCard Alignment="Alignment.Center">
+                    <BSCard CardType="CardType.Body">
+                        <BSCard CardType="CardType.Title">Special Title Treatment</BSCard>
+                        <BSCard CardType="CardType.Text">With supporting text below as a natural lead-in to additional content.</BSCard>
+                    </BSCard>
+                </BSCard>
+            </div>
+
+        }
     </div>
 </div>
 
+@code{
+    DateTime minAgo=DateTime.Now.AddMinutes(-5);
 
-@code {
-
-    DateTime minAgo=DateTime.Now.AddMinutes(-0);
-
-    CryptoData[] cryptoArray = new CryptoData[13];
 
     private List<CryptoData> searchList;
 
@@ -65,14 +51,10 @@
         Console.WriteLine(minAgo);
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = context.Currencies.Where(s => s.date >= minAgo).DistinctBy(x => x.slug).OrderByDescending(o => o.percentChange24).Take(6).ToList();
+            searchList = context.Currencies.Where(s => s.date> minAgo).DistinctBy(x => x.slug).OrderByDescending(d => d.date).Take(4).ToList();
         }
+        Console.WriteLine(searchList);
 
 
-        foreach (CryptoData crypto in searchList){
-            Console.WriteLine(crypto.slug+"had change of "+crypto.percentChange24+"%");
-        }
     }
-
 }
-
