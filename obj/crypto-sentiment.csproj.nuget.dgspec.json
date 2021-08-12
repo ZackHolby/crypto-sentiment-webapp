@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "BlazorStrap": {
+              "target": "Package",
+              "version": "[1.5.1, )"
+            },
             "Dapper": {
               "target": "Package",
               "version": "[2.0.90, )"
@@ -89,6 +93,10 @@
             "System.Json": {
               "target": "Package",
               "version": "[4.7.1, )"
+            },
+            "morelinq": {
+              "target": "Package",
+              "version": "[3.3.2, )"
             }
           },
           "imports": [

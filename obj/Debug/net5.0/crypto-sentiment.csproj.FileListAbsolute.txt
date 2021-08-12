@@ -362,3 +362,6 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.AspNetC
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\Microsoft.JSInterop.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\MudBlazor.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\System.IO.Pipelines.dll
+C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\MoreLinq.dll
+C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\BlazorComponentUtilities.dll
+C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\BlazorStrap.dll
