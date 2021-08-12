@@ -8,19 +8,40 @@
 @using System.Linq;
 @using Microsoft.EntityFrameworkCore;
 @using crypto_sentiment.Models;
+@using MoreLinq
 @inject CryptoDbService cryptoDbService
 @inject TweetAPIService tweetAPIservice
 @inject Microsoft.EntityFrameworkCore.IDbContextFactory<CryptoDbContext> contextFactory;
 @inject NavigationManager NavigationManager
 
 <h1 style="text-align:center;">Crypto Sentiment</h1>
-<h3 style="text-align:center;">Get started by searching your favorite Cryptocurrencies above!</h3>
-<div class="hero-image"></div>
+<h6 class="subtext" style="text-align:center;">Get started by searching your favorite Cryptocurrencies above!</h6>
+<div class="collapsedIMG">
+    <div class="hero-image"></div>
+</div>
+
+<h4 style="text-decoration:underline;text-align:center;">Largest Movers in past 24 Hours</h4>
+<div className="container-fluid d-flex justify-content-center">
+    <div class="row">
+        @foreach(CryptoData crypto in searchList){
+            <div class="col-lg-3 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
+                <BSCard Alignment="Alignment.Center">
+                    <BSCard CardType="CardType.Body">
+                        <BSCard CardType="CardType.Title">Special Title Treatment</BSCard>
+                        <BSCard CardType="CardType.Text">With supporting text below as a natural lead-in to additional content.</BSCard>
+                    </BSCard>
+                </BSCard>
+            </div>
+
+        }
+    </div>
+</div>
+                
 
 
 @code {
 
-    DateTime minAgo=DateTime.Now.AddMinutes(-10);
+    DateTime minAgo=DateTime.Now.AddMinutes(-5);
 
     private List<CryptoData> searchList;
 
@@ -29,9 +50,9 @@
         Console.WriteLine(minAgo);
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(s => s.date> minAgo).ToListAsync();
+            searchList = context.Currencies.Where(s => s.date> minAgo).DistinctBy(x => x.slug).OrderByDescending(d => d.date).Take(4).ToList();
         }
-        Console.WriteLine(searchList.Count);
+        Console.WriteLine(searchList);
     }
 
 }

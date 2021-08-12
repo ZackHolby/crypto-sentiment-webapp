@@ -89,6 +89,13 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 14 "C:\Users\zackh\Coding\crypto-sentiment-webapp\_Imports.razor"
+using BlazorStrap;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 4 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
 using System.Globalization;
 
@@ -137,6 +144,13 @@ using crypto_sentiment.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+using MoreLinq;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -146,10 +160,10 @@ using crypto_sentiment.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 21 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
+#line 42 "C:\Users\zackh\Coding\crypto-sentiment-webapp\Pages\Index.razor"
        
 
-    DateTime minAgo=DateTime.Now.AddMinutes(-10);
+    DateTime minAgo=DateTime.Now.AddMinutes(-5);
 
     private List<CryptoData> searchList;
 
@@ -158,9 +172,9 @@ using crypto_sentiment.Models;
         Console.WriteLine(minAgo);
         using (var context = contextFactory.CreateDbContext())
         {
-            searchList = await context.Currencies.Where(s => s.date> minAgo).ToListAsync();
+            searchList = context.Currencies.Where(s => s.date> minAgo).DistinctBy(x => x.slug).OrderByDescending(d => d.date).Take(4).ToList();
         }
-        Console.WriteLine(searchList.Count);
+        Console.WriteLine(searchList);
     }
 
 
