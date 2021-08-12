@@ -33,6 +33,37 @@
           "lib/netstandard2.0/Aspose.Words.dll": {}
         }
       },
+<<<<<<< HEAD
+      "BlazorComponentUtilities/1.6.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.3.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/BlazorComponentUtilities.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BlazorComponentUtilities.dll": {}
+        }
+      },
+      "BlazorStrap/1.5.1": {
+        "type": "package",
+        "dependencies": {
+          "BlazorComponentUtilities": "1.6.0",
+          "Microsoft.AspNetCore.Components.Web": "5.0.3"
+        },
+        "compile": {
+          "lib/net5.0/BlazorStrap.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/BlazorStrap.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorStrap.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorStrap.props": {}
+=======
       "Blazorise/0.9.4.3": {
         "type": "package",
         "dependencies": {
@@ -84,6 +115,7 @@
         },
         "runtime": {
           "lib/net5.0/Blazorise.Icons.FontAwesome.dll": {}
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
         }
       },
       "Dapper/2.0.90": {
@@ -2701,11 +2733,11 @@
           "ref/netstandard1.0/System.Resources.ResourceManager.dll": {}
         }
       },
-      "System.Runtime/4.3.0": {
+      "System.Runtime/4.3.1": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0"
+          "Microsoft.NETCore.Platforms": "1.1.1",
+          "Microsoft.NETCore.Targets": "1.1.3"
         },
         "compile": {
           "ref/netstandard1.5/System.Runtime.dll": {}
@@ -3463,6 +3495,43 @@
         "lib/netstandard2.0/Aspose.Words.xml"
       ]
     },
+<<<<<<< HEAD
+    "BlazorComponentUtilities/1.6.0": {
+      "sha512": "lMs6tJpkgYWmze2+hEp0Kg4VeIuZPkS6ekt7k+18tE+4iMAy3xlgM5XJw1fzOZjpYQj3X9rex6T3Eoij52tyXw==",
+      "type": "package",
+      "path": "blazorcomponentutilities/1.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "blazor-glove-256.jpg",
+        "blazorcomponentutilities.1.6.0.nupkg.sha512",
+        "blazorcomponentutilities.nuspec",
+        "lib/netstandard2.0/BlazorComponentUtilities.dll"
+      ]
+    },
+    "BlazorStrap/1.5.1": {
+      "sha512": "yCwLLGbNLXBCzluAqgwipZbwSogatO69AvBdtiq5x30IMn0GK7XSkUV8hmbwqHTAsewEaNNhoLTYAe7KjM2iGQ==",
+      "type": "package",
+      "path": "blazorstrap/1.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "blazorstrap.1.5.1.nupkg.sha512",
+        "blazorstrap.nuspec",
+        "build/BlazorStrap.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorStrap.props",
+        "buildTransitive/BlazorStrap.props",
+        "lib/net5.0/BlazorStrap.dll",
+        "lib/netstandard2.0/BlazorStrap.dll",
+        "staticwebassets/blazorStrap.js",
+        "staticwebassets/css/cromefix.css",
+        "staticwebassets/css/submenu.css",
+        "staticwebassets/popper.min.js",
+        "staticwebassets/popper.min.js.map",
+        "staticwebassets/site.webmanifest"
+=======
     "Blazorise/0.9.4.3": {
       "sha512": "h6y9Vu6II1PB7/Y/4VplB+Tsv2JGUZHiPVFNfMEhNE/IfCndrFQlAvsTiIa3gxCcAxb9vSyHz5gNl6CpHwKRvg==",
       "type": "package",
@@ -3520,6 +3589,7 @@
         "blazorise.icons.fontawesome.nuspec",
         "lib/net5.0/Blazorise.Icons.FontAwesome.dll",
         "lib/net6.0/Blazorise.Icons.FontAwesome.dll"
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
       ]
     },
     "Dapper/2.0.90": {
@@ -8240,10 +8310,10 @@
         "system.resources.resourcemanager.nuspec"
       ]
     },
-    "System.Runtime/4.3.0": {
-      "sha512": "JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+    "System.Runtime/4.3.1": {
+      "sha512": "abhfv1dTK6NXOmu4bgHIONxHyEqFjW8HwXPmpY9gmll+ix9UNo4XDcmzJn6oLooftxNssVHdJC1pGT9jkSynQg==",
       "type": "package",
-      "path": "system.runtime/4.3.0",
+      "path": "system.runtime/4.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -8328,7 +8398,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.runtime.4.3.0.nupkg.sha512",
+        "system.runtime.4.3.1.nupkg.sha512",
         "system.runtime.nuspec"
       ]
     },
@@ -10191,8 +10261,12 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+<<<<<<< HEAD
+      "BlazorStrap >= 1.5.1",
+=======
       "Blazorise.Bootstrap >= 0.9.4.3",
       "Blazorise.Icons.FontAwesome >= 0.9.4.3",
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
       "Dapper >= 2.0.90",
       "GroupDocs.Classification >= 21.1.0",
       "Microsoft.AspNet.WebApi.Client >= 5.2.7",
@@ -10247,6 +10321,11 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+<<<<<<< HEAD
+          "BlazorStrap": {
+            "target": "Package",
+            "version": "[1.5.1, )"
+=======
           "Blazorise.Bootstrap": {
             "target": "Package",
             "version": "[0.9.4.3, )"
@@ -10254,6 +10333,7 @@
           "Blazorise.Icons.FontAwesome": {
             "target": "Package",
             "version": "[0.9.4.3, )"
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
           },
           "Dapper": {
             "target": "Package",

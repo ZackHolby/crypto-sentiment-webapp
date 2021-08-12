@@ -40,6 +40,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+<<<<<<< HEAD
+            "BlazorStrap": {
+              "target": "Package",
+              "version": "[1.5.1, )"
+=======
             "Blazorise.Bootstrap": {
               "target": "Package",
               "version": "[0.9.4.3, )"
@@ -47,6 +52,7 @@
             "Blazorise.Icons.FontAwesome": {
               "target": "Package",
               "version": "[0.9.4.3, )"
+>>>>>>> c930ad5e12f89ec669f3a3ba428331b4faefac68
             },
             "Dapper": {
               "target": "Package",
