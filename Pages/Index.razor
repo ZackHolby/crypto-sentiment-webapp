@@ -32,14 +32,14 @@
                     <BSCard Class="clickable" Color="BlazorStrap.Color.Success" Alignment="Alignment.Center" @onclick='(() => SearchForCryptoRef(crypto.slug))'>
                         <BSCard CardType="CardType.Body">
                             <BSCard Class="under" CardType="CardType.Title">@FirstLetterToUpper(crypto.slug) (@crypto.symbol)</BSCard>
-                                <BSCard CardType="CardType.Text">@crypto.percentChange24%</BSCard>
+                                <BSCard CardType="CardType.Text">Change: @crypto.percentChange24%</BSCard>
                         </BSCard>
                     </BSCard>
                 }else{
                     <BSCard Class="clickable" Color="BlazorStrap.Color.Danger" Alignment="Alignment.Center" @onclick='(() => SearchForCryptoRef(crypto.slug))'>
                         <BSCard CardType="CardType.Body">
                             <BSCard Class="under" CardType="CardType.Title">@FirstLetterToUpper(crypto.slug) (@crypto.symbol)</BSCard>
-                                <BSCard CardType="CardType.Text">@crypto.percentChange24%</BSCard>
+                                <BSCard CardType="CardType.Text">Change: @crypto.percentChange24%</BSCard>
                         </BSCard>
                     </BSCard>
                 }
