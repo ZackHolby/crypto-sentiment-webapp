@@ -50,7 +50,7 @@
 </div>
 
 @code{
-    DateTime minAgo=DateTime.Now.AddMinutes(-0);
+    DateTime minAgo=DateTime.Now.AddMinutes(-10);
 
 
     private List<CryptoData> searchList;
@@ -65,12 +65,17 @@
         using (var context = contextFactory.CreateDbContext())
         {
             searchList = context.Currencies.Where(s => s.date> minAgo).DistinctBy(x => x.slug).OrderByDescending(d => d.marketCap).Take(100).ToList();
+            Console.WriteLine("HERE");
             moverList = searchList.OrderByDescending(d => Math.Abs(d.percentChange24)).Take(4).ToList();
+            Console.WriteLine("EVEN HERE");
         }
 
+        Console.WriteLine(moverList.Count);
         foreach(CryptoData c in moverList){
             Console.WriteLine(c.slug+ "   "+c.percentChange24);
         }
+
+        Console.WriteLine("No way");
         
 
 
