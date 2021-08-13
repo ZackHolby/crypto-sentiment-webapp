@@ -1,5 +1,17 @@
 # Crypto Sentiment Blazor Webapp
-Blazor webapp using CoinMarketCap API to pull crypto data and analyze sentiment from various sources (Twitter, Reddit, possibly StockTwits)
+Visit my site at [Cryptoment](https://cryptoment.azurewebsites.net/)
+```
+https://cryptoment.azurewebsites.net/
+```
+###### Blazor webapp using CoinMarketCap API to pull crypto data and analyze sentiment from social media
+
+### Technologies Used
+- C#/.Net 5.0
+- Blazor Server
+- Azure Functions
+- Python Flask API for twitter sentiment
+- Azure Cloud SqlServer Database
+- Azure App Service for deployment
 
 ### API calls
 - ##### CoinMarketCap
@@ -17,17 +29,12 @@ Blazor webapp using CoinMarketCap API to pull crypto data and analyze sentiment 
 | currencyID | int | ID of cryptocurrency given by CoinMarketCap API |
 | date | datetime(7) | Datetime of data pull of cryptocurrency |
 | marketCap | bigint | Current market cap of respective cryptocurrency |
-| slug | nvarchar(max) | Full name of cryptocurrency (Ex. bitcoin) |
-| symbol | nvarchar(max) | Abbreviated name of cryptocurrency (Ex.  BTC) |
+| slug | nvarchar(20) | Full name of cryptocurrency (Ex. bitcoin) |
+| symbol | nvarchar(100) | Abbreviated name of cryptocurrency (Ex.  BTC) |
+| percentChange24 | float | Amount a crypto has changed in value over 24 hour span |
 
 
-# Helpful Notes
-#### Start .NET server for blazor app: 
-```sh
-$ dotnet watch run
-```	
-
-#### Use smss to connect to cloud DB using following command as Server Name (will have to provide credentials sepearte):
-```sh
-$ crypto-sentiment-sqlserver.database.windows.net
-```	
+# Key Takeaways
+1. Serverless computing - huge advantage to freshen data through serverless computation over constantly running a server to perform API calls and populate DB. I utilized a cloud DB and Azure functions to pull data every 5 minutes and populate DB.
+2. Nvarchar(max) nightmare - this data type in SQLserver DB's casues runtimes of LINQ queries to be extremely slow (>15 seconds at times). Avoid this by using a fixed length such as Nvarchar(50) to get a fast query and load data quickly.
+3. Blazor Server and Razor pages are awesome! - Blazor made writing client side code with the logic right next to it very simple and continuous for the developer. It made for quick and efficient development on my end that was greatly appreciated while learning C#/.NET.
