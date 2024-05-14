@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyProductAttribute("crypto-sentiment")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+090b72c46b661301242becde6952441203b1a937")]
 [assembly: System.Reflection.AssemblyTitleAttribute("crypto-sentiment.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 

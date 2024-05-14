@@ -29,17 +29,17 @@
             <div class="col-lg-3 offset-lg-0 col-md-6 offset-md-0 col-sm-10 offset-sm-1 col-10 offset-1">
                 @if(@crypto.percentChange24 >= 0){
                     
-                    <BSCard Class="clickable" Color="BlazorStrap.Color.Success" Alignment="Alignment.Center" @onclick='(() => SearchForCryptoRef(crypto.slug))'>
+                    <BSCard Class="clickable" Color="BlazorStrap.Color.Success" Alignment="Alignment.Center" IsOutline="true" @onclick='(() => SearchForCryptoRef(crypto.slug))'>
                         <BSCard CardType="CardType.Body">
                             <BSCard Class="under" CardType="CardType.Title">@FirstLetterToUpper(crypto.slug) (@crypto.symbol)</BSCard>
-                                <BSCard CardType="CardType.Text">Change: @crypto.percentChange24%</BSCard>
+                                <BSCard Class="colorPercentGreen" CardType="CardType.Text">Change: @crypto.percentChange24%</BSCard>
                         </BSCard>
                     </BSCard>
                 }else{
-                    <BSCard Class="clickable" Color="BlazorStrap.Color.Danger" Alignment="Alignment.Center" @onclick='(() => SearchForCryptoRef(crypto.slug))'>
+                    <BSCard Class="clickable" Color="BlazorStrap.Color.Danger" Alignment="Alignment.Center" IsOutline="true" @onclick='(() => SearchForCryptoRef(crypto.slug))'>
                         <BSCard CardType="CardType.Body">
                             <BSCard Class="under" CardType="CardType.Title">@FirstLetterToUpper(crypto.slug) (@crypto.symbol)</BSCard>
-                                <BSCard CardType="CardType.Text">Change: @crypto.percentChange24%</BSCard>
+                                <BSCard Class="colorPercentRed" CardType="CardType.Text">Change: @crypto.percentChange24%</BSCard>
                         </BSCard>
                     </BSCard>
                 }

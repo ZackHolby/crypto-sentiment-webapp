@@ -23,6 +23,14 @@ button, .btn-link {
   cursor: pointer;
 }
 
+.colorPercentGreen{
+  color: green;
+}
+
+.colorPercentRed{
+  color: red;
+}
+
 .hero-image {
   /* The image */
    background-image: url(../images/crypto-coins.png);

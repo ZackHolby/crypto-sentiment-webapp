@@ -6,7 +6,6 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\crypto-sentiment.
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\crypto-sentiment.runtimeconfig.json
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\crypto-sentiment.runtimeconfig.dev.json
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\crypto-sentiment.dll
-C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\ref\crypto-sentiment.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\crypto-sentiment.pdb
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\crypto-sentiment.Views.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\bin\Debug\net5.0\crypto-sentiment.Views.pdb
@@ -114,8 +113,15 @@ C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\scopedcss\project
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.RazorTargetAssemblyInfo.cache
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.RazorTargetAssemblyInfo.cs
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.Views.pdb
-C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.csproj.CopyComplete
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\ref\crypto-sentiment.dll
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.pdb
 C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.genruntimeconfig.cache
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-sentiment.sourcelink.json
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\staticwebassets\crypto-sentiment.StaticWebAssets.Pack.cache
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\staticwebassets\msbuild.crypto-sentiment.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\staticwebassets\msbuild.build.crypto-sentiment.props
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.crypto-sentiment.props
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.crypto-sentiment.props
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\crypto-s.23AFD98B.Up2Date
+C:\Users\zackh\Coding\crypto-sentiment-webapp\obj\Debug\net5.0\refint\crypto-sentiment.dll
